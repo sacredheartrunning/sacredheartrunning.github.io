@@ -1,0 +1,150 @@
+SACRED HEART RUNNING — FIRST WORKING VERSION
+
+This whole folder is the handoff unit. It has no dependency on the St. X folder,
+the original computer's username, Codex, or a Python virtual environment.
+Python 3.10 or newer is required; no additional Python packages are needed.
+
+START ON WINDOWS
+Install Python 3 with the Python launcher. Double-click Start Sacred Heart.bat.
+Choose 3 to rebuild and open the local website. If Python cannot be found,
+install it first and reopen the launcher. On Mac, run python3 run.py in this folder.
+
+FOLDERS
+run.py                    Import, validate, back up, and build reports
+presentation.py           Home, meet, athlete, and download page generation
+assets/                   School logo, colors, navigation, and report styling
+settings.json             School identity and future publishing destination
+data/sacred_heart.db       Sacred Heart's database only
+data/sources/             Original downloads and reviewed import files
+data/backups/             Database snapshots made before imports
+output/site/index.html    Local website; double-click to open
+manual_results_template.csv  Common input format for other sources
+tests/                    Offline workflow checks
+
+MILESPLIT
+Menu option 1 accepts a meet URL and previews girls' JV and Varsity races before
+asking to import. Existing races require explicit replacement; they are never
+silently appended a second time. Each successful import rebuilds the local site.
+
+Readers support tab-delimited "Completed Results" used by Tiger Run and
+single-event girls HY-TEK files used by Palindrome. For the latter, specify
+--divisions JV explicitly on the command line. Other layouts fail rather than guess. Browser
+retrieval and additional MileSplit formats can be added to the same import path.
+Direct download works for Tiger Run without login. If a future source requires
+login, use your own browser/session; do not put passwords in configuration files.
+
+Command-line preview (no database changes):
+  python run.py milesplit "https://ky.milesplit.com/meets/771610-stxxc-tiger-run-2026/results?type=formatted"
+Add --commit to import after review. Add --replace for reviewed replacement.
+For just one division, add --divisions JV or --divisions Varsity.
+
+SCREENSHOTS, ATHLETIC.NET, AND OTHER MANUAL SOURCES
+Use a copy of manual_results_template.csv. Enter one row per runner:
+place,bib,athlete,grade,gender,team,time,status,athlete_id
+Use F for gender, time as 19:23.45, and status FINISHED (or blank).
+DNF/DNS/DQ may be used in status with no time. Preserve names and grade from the
+source. athlete_id is optional and should only contain a stable source athlete ID.
+The file can be edited in Excel and saved as CSV UTF-8.
+
+Screenshot transcription must be checked against the original before import.
+Keep the original image in data/sources and identify it in --source-url. This
+version does not automatically read screenshots or scrape Athletic.net.
+
+Example preview, from this folder:
+  python run.py csv "data/sources/reviewed.csv" --meet-key "milesplit:771610" --name "STXXC Tiger Run 2026" --date 2026-08-22 --division JV --distance 5000 --source manual --source-url "Screenshot: tiger-jv.png"
+Add --commit after review. Add --replace only if the file contains the ENTIRE
+race you intend to replace. Do not replace a full race with a partial screenshot.
+Use --source athletic.net for reviewed Athletic.net exports.
+
+Use the SAME meet key and division when correcting a race from another source.
+Different meet keys intentionally represent different meets. The system does
+not guess whether two differently named meets are the same event.
+
+DATA RULES
+Only female XC races are accepted. Boys and unselected divisions are excluded.
+Keep all runners in a selected race for context, highlighting Sacred Heart.
+Imports retain source URL, saved file, hash, and audit history. Race replacements
+are atomic across the whole import and a database backup is made first.
+Athlete histories use school, name, and estimated graduating cohort when grade
+is present. This is provisional identity matching, not a verified graduation
+year. Missing grades, name changes, same-name athletes, or switching to stable
+source IDs can require reconciliation before historical backfills.
+Personal bests are best IMPORTED times by distance; they are not complete career
+records. Team scores are not inferred from finish places in this initial version.
+
+BACKUP AND RESTORE
+Menu 4 makes a database snapshot using SQLite's backup API. For a full handoff or
+backup, close the program and copy this entire sacred_heart folder, including
+data/sources, settings, and the database. Do not have two computers edit one live
+database through a synced folder.
+To restore: close the program, copy the current data/sacred_heart.db somewhere
+safe, then copy the selected backup into data and name it sacred_heart.db.
+Rebuild with menu 2. Test the restored file before resuming imports.
+
+PUBLISHING
+The intended repository is:
+https://github.com/sacredheartrunning/sacredheartrunning.github.io
+The intended website is:
+https://sacredheartrunning.github.io/
+Run python publish.py to rebuild, commit, and push the generated website.
+Git must be installed and authenticated with an account that can write to the
+Sacred Heart organization. publishing/ is a separate website checkout, created
+automatically. Only generated website files are uploaded; source inputs, database,
+and backups stay local. GitHub Pages deployment takes a few minutes.
+If a push fails after a commit, retry python publish.py; it will push the pending
+commit. If preparation stops with staged changes, inspect publishing/ before
+committing or changing those files.
+
+Athlete URLs use names, for example athlete-lucy-gaunt.html. The local
+output/site/.athlete_urls.json registry preserves assigned URLs across builds
+and resolves duplicate names. Keep it when copying the folder to another user.
+
+TESTS
+  python -m unittest discover -s tests -v
+
+NEXT
+2026 meets through Haunted Woods (October 10) have been imported.
+October 17 Kentucky JV Championships was still awaiting posted results at review.
+Historical season discovery, team scores, verified roster identities, and automated
+Athletic.net/browser import remain follow-up work.
+
+STRUCTURED MILESPLIT IMPORTS
+The public results feed supplies explicit divisions and stable athlete IDs.
+From this folder, preview a meet using:
+  python milesplit.py 755559 --name "Ryle Invite" --date 2026-09-05
+Add --commit to save after reviewing the preview. Existing races require
+--replace explicitly. The site rebuilds after import; python publish.py publishes.
+Only high-school girls races containing Sacred Heart are selected, including all
+opponents in those races. Source files and database backups are retained.
+Grades from this feed are inferred from graduation year and race date. Stable
+source IDs are linked to existing histories where matching is unambiguous.
+Mile races retain exact mile distances and are not compared with 5K bests.
+For a meet spanning multiple days, use the first listed date unless a race date
+is known. Nike 2026 uses October 3 for both races, confirmed by Bob.
+Ryle 2026: Lucy Gaunt's race is Varsity; Clara Kaiser's race is JV, confirmed by
+formatted result labels, structured source divisions, and Bob.
+
+PUBLISH AND CODE BACKUP FROM THE LAUNCHER
+Double-click Start Sacred Heart.bat, or run python run.py in this folder.
+  Option 6: Publish website (rebuilds and pushes the website).
+  Option 7: Back up/update code on GitHub (pushes local code to source/).
+Equivalent commands: python run.py publish and python run.py backup-code.
+Option 7 uploads the local application code; it does NOT download or overwrite
+local code. Run it after code changes. Git keeps earlier versions in its history.
+Code backup location:
+https://github.com/sacredheartrunning/sacredheartrunning.github.io/tree/main/source
+This repository is public. Only the explicitly selected program files, settings,
+assets, documentation, template and tests are uploaded by the code-backup option.
+Database files, downloaded source results, caches and backups are excluded.
+Website publishing and source backup preserve one another's files.
+
+FULL BACKUP / HANDOFF
+GitHub's source folder restores the program, but not your working database.
+For a complete backup, quit the launcher and copy the entire sacred_heart folder
+to an external drive or another backup location. This includes data/ and the
+output/site/.athlete_urls.json registry. Keep a dated copy before major changes.
+Option 4 backs up only the database locally, not the code or downloaded inputs.
+To restore code from GitHub: choose Code > Download ZIP in the repository and
+copy the contents of source/ into a new Sacred Heart folder. Restore data/ and
+output/site/.athlete_urls.json from your full backup, then run the launcher.
+The recipient needs Python 3.10+; Git and repository access are needed to publish.

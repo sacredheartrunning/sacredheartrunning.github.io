@@ -1,0 +1,8 @@
+Sacred Heart Academy logo, downloaded from the school's public header:
+https://sha.shslou.org/pics/header_logo.png
+School reference: https://sha.shslou.org/
+Palette from https://sha.shslou.org/shared/main.css:
+navy #002f55, red #ee3124, white #ffffff.
+Retrieved October 16, 2026. Original logo used without alteration.
+Report structure adapted from the local St. X home/meet/athlete layout;
+Sacred Heart presentation assets are bundled here for independent operation.

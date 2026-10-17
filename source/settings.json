@@ -1,0 +1,11 @@
+{
+  "school": "Sacred Heart",
+  "site_title": "Sacred Heart Running",
+  "team_aliases": ["Sacred Heart", "Sacred Heart Academy"],
+  "gender": "F",
+  "sport": "xc",
+  "milesplit_team_id": "3710",
+  "team_url": "https://ky.milesplit.com/teams/3710-sacred-heart",
+  "website_url": "https://sacredheartrunning.github.io/",
+  "publishing_repository": "https://github.com/sacredheartrunning/sacredheartrunning.github.io.git"
+}

@@ -1,0 +1,14 @@
+source/.gitignore
+source/START_HERE.txt
+source/Start Sacred Heart.bat
+source/assets/SOURCES.txt
+source/assets/school-logo.png
+source/assets/site.css
+source/assets/site.js
+source/manual_results_template.csv
+source/milesplit.py
+source/presentation.py
+source/publish.py
+source/run.py
+source/settings.json
+source/tests/test_workflow.py
