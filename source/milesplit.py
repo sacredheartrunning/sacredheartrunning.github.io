@@ -89,7 +89,11 @@ def fetch_schedule(year):
     folder=ROOT/'data'/'sources'
     folder.mkdir(parents=True,exist_ok=True)
     (folder/f'schedule_{year}.json').write_text(text,encoding='utf-8')
-    return json.loads(text)
+    document=json.loads(text)
+    groups=document.get('data',{}).get('monthGroups',[])
+    if any(str(group.get('seasonYear'))!=str(int(year)) for group in groups):
+        raise ValueError(f'MileSplit returned a different season for {year}; use original meet-history links instead.')
+    return document
 
 
 def fetch_results(meet_id):

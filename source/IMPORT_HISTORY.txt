@@ -31,3 +31,32 @@ The full per-meet audit is data/sources/historical_import_review.json.
 2020-09-08 St. Xavier Champions Series Night 1: Normalized source time-format typo to 32:29.00 for Athlete Mae; original source retained.
 2020-09-08 St. Xavier Champions Series Night 1: Normalized source time-format typo to 32:44.00 for Molly Perry; original source retained.
 2021-09-28 Champions Series Meet 3: resolved from Complete Results page after user identified the missing race. Imported girls JV 5K, 34 finishers including 13 Sacred Heart. Used meet-page date September 28; embedded HY-TEK header says September 2 and appears stale.
+
+2015-2019 ARCHIVE REVIEW (October 17, 2026)
+The 2015 team schedule API silently returns 2026. 2015 meets were discovered through official meet-history links, then verified against dated meet pages and actual Sacred Heart results. This is not a claim of complete 2015 season coverage.
+Original race-file titles/headings establish divisions when feed labels are missing. Non-race age tags such as Under 16 and Open were removed where original school race headings do not use them; actual youth age divisions were retained.
+2019 Metro Louisville JV XC Regionals: available girls results recovered from inline HTML. Source has missing finish places and splices boys into the girls table; incomplete coverage is disclosed on the meet page.
+2018 Rumble Through the Jungle: no Sacred Heart high-school entries found in the feed or original girls JV/Varsity files; not imported. Participation remains unconfirmed.
+2016 Atherton Hilltop races 3 and 4: canceled; not imported.
+Other unmatched 2015 meet-history candidates were not on a verified Sacred Heart schedule and were not imported; no participation is assumed.
+Full source and correction audit: data/sources/archive_2015_2019_ready.json.
+2019-09-28 Midwest Meet of Champions: Restored original result name Stella McNab at place 95 (26:56.10); removed incorrect feed profile ID/grade.
+2019-10-12 Haunted Woods Classic: Sarah Curtis appears alone in a separately published section; excluded from the Sacred Heart JV race.
+2019-10-24 Metro Louisville JV XC Regionals: Parsed available girls JV rows only. Published file omits some finish places and abruptly switches to boys after girl place 177. Retained available girls with original places; field is incomplete.
+2018-09-29 Midwest Meet of Champions: Restored original result name Anna Ackerman at place 223 (26:48.90); removed incorrect feed profile ID/grade.
+2018-09-29 Midwest Meet of Champions: Restored original result name Madeline Maginnis at place 252 (27:34.40); removed incorrect feed profile ID/grade.
+2018-09-29 Midwest Meet of Champions: Restored original result name Elle Mader at place 319 (32:15.40); removed incorrect feed profile ID/grade.
+2017-09-09 Brown County Invitational: Place 153, 25:30.6 is Cecilia (Ceci) McCombs in original results, incorrectly linked to Evie in feed. Corrected to Ceci source ID 6328443/class 2019.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Claire Dillard at place 150 (23:33.76); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Josie Pedoto at place 167 (23:55.52); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Caroline McCarthy at place 216 (24:56.61); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Claudia Deters at place 222 (25:15.05); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Emma Perera at place 243 (25:40.02); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Anna Ackerman at place 272 (26:41.40); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Madeline Maginnis at place 277 (26:44.24); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Kylie Wolever at place 299 (27:58.56); removed incorrect feed profile ID/grade.
+2017-09-30 2017 Midwest Meet of Champions: Restored original result name Nicole Makaras at place 309 (29:05.44); removed incorrect feed profile ID/grade.
+
+October 17, 2026 completion: 62 meets / 1,786 Sacred Heart performances added for 2015-2019.
+Ella Powell: 2019 Metro JV row has no grade or source ID; kept separate from 2017 freshman history at Bob's request because identity is unconfirmed.
+Emma Johnson: retained separate source IDs/cohorts (class 2019 and class 2024); these are not merged merely because names match.

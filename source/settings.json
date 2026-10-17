@@ -1,11 +1,17 @@
 {
   "school": "Sacred Heart",
   "site_title": "Sacred Heart Running",
-  "team_aliases": ["Sacred Heart", "Sacred Heart Academy"],
+  "team_aliases": [
+    "Sacred Heart",
+    "Sacred Heart Academy"
+  ],
   "gender": "F",
   "sport": "xc",
   "milesplit_team_id": "3710",
   "team_url": "https://ky.milesplit.com/teams/3710-sacred-heart",
   "website_url": "https://sacredheartrunning.github.io/",
-  "publishing_repository": "https://github.com/sacredheartrunning/sacredheartrunning.github.io.git"
+  "publishing_repository": "https://github.com/sacredheartrunning/sacredheartrunning.github.io.git",
+  "meet_notes": {
+    "milesplit:369995": "Partial results: the original girls result file has missing finish places and then switches into boys results. This page includes only the available girls finishers; it may not include every Sacred Heart runner."
+  }
 }

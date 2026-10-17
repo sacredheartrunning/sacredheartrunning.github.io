@@ -130,6 +130,9 @@ def build(rows, meets, output, settings, is_home):
         csv_export(output/download_name,selected)
         downloads += f'<p><a href="{download_name}" download>{E(meet["date"])} · {E(meet["name"])}</a></p>'
         body = f'<a class="back" href="index.html#meets">← All meets</a><div class="topbar"><div><p class="date">{E(meet["date"])}</p><h1>{E(meet["name"])}</h1><p class="subline">{E(meet["venue"])} · Girls cross country</p></div><a class="button" href="{download_name}" download>Download results ↓</a></div><div class="filterbar"><label><input type="checkbox" id="homeOnly"> Sacred Heart only</label><span class="muted">Sacred Heart runners are highlighted</span></div><div class="tabs" role="group" aria-label="Race filter"><button class="tab active" data-race="all" aria-pressed="true">All races</button>'
+        note = settings.get('meet_notes', {}).get(meet.get('meet_key', ''), '')
+        if note:
+            body = body.replace('<div class="filterbar">', f'<p class="coverage">{E(note)}</p><div class="filterbar">', 1)
         for rid in races:
             first = next(r for r in selected if r['race_id']==rid)
             body += f'<button class="tab" data-race="{rid}" aria-pressed="false">{E(first["division"])}</button>'

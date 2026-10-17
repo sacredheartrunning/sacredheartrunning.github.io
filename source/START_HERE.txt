@@ -158,3 +158,7 @@ whole seasons, and cannot handle every historical file layout. The structured
 milesplit.py importer is used for more varied divisions. Missing labels, mixed
 races or source errors require review before import; never infer a race solely
 from runner times. Option 6 publishes the local site after imports.
+
+2015-2019 have now been added (62 meets). The 2015 schedule endpoint returns
+the wrong season; fetch_schedule now rejects that fallback. Individual official
+meet-history links supplied 2015 results. See IMPORT_HISTORY.txt for caveats.

@@ -242,5 +242,15 @@ class WorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):milesplit.parse_results(doc,self.meet)
 
 
+    def test_schedule_rejects_silent_fallback_to_current_year(self):
+        import milesplit
+        from unittest.mock import patch
+        payload='{"data":{"monthGroups":[{"seasonYear":"2026","items":[]}]}}'
+        with patch.object(milesplit,'ROOT',self.root), patch.object(milesplit,'download',return_value=payload):
+            with self.assertRaisesRegex(ValueError,'different season'):
+                milesplit.fetch_schedule(2015)
+        self.assertTrue((self.root/'data'/'sources'/'schedule_2015.json').exists())
+
+
 if __name__ == "__main__":
     unittest.main()

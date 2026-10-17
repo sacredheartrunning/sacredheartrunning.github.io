@@ -268,7 +268,7 @@ def resolve_identity(conn, row, meet_date, source, previous_people):
         if saved:
             return saved[0]
     provisional=athlete_key({**row,'athlete_id':''},meet_date,source)
-    candidates=[p for p in previous_people if normalize(p['athlete'])==normalize(row['athlete']) and (normalize(p['team'])==normalize(row['team']) or (is_home(p['team']) and is_home(row['team'])))]
+    candidates=[p for p in previous_people.get(normalize(row['athlete']),[]) if normalize(p['team'])==normalize(row['team']) or (is_home(p['team']) and is_home(row['team']))]
     keys={p['athlete_key'] for p in candidates}
     key=athlete_key(row,meet_date,source)
     if provisional in keys:
@@ -302,6 +302,10 @@ def import_races(meet, races, source, source_url, artifact, *, replace=False, db
             conn.execute("INSERT OR IGNORE INTO meets(meet_key,name,date,venue) VALUES(?,?,?,?)", (meet["key"],meet["name"],meet["date"],meet.get("venue", "")))
             mid = conn.execute("SELECT id FROM meets WHERE meet_key=?", (meet["key"],)).fetchone()[0]
             previous_people = conn.execute('SELECT DISTINCT athlete,team,grade,athlete_key FROM results JOIN races ON races.id=results.race_id JOIN meets ON meets.id=races.meet_id WHERE substr(meets.date,1,4)=?',(meet['date'][:4],)).fetchall()
+            people_by_name = {}
+            for person in previous_people:
+                people_by_name.setdefault(normalize(person['athlete']), []).append(person)
+            previous_people = people_by_name
             stamp = now()
             for race in races:
                 race_date=race.get('race_date',meet['date'])
