@@ -11,7 +11,6 @@ NOT IMPORTED:
 2022-09-24 | Midwest Catholic XC Championships | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/468580
 2022-08-23 | SHA XC Newcomer @ Seneca Series Meet 1 - HS & MS | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/486726
 2021-11-13 | Maryland Private School State Championships | Different school: original results say Sacred Heart Marian, Maryland. Excluded. | https://ky.milesplit.com/meets/437343
-2021-09-28 | St. X XC Champions Series Meet 3 -JV, MS & ES | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/437370
 
 REVIEW NOTES:
 Separate result files remain separate races, even when the feed has no division labels.
@@ -31,3 +30,4 @@ The full per-meet audit is data/sources/historical_import_review.json.
 2020-09-22 St. Xavier Champions Series Night 2: Original source assigns place 25 to both Lena Fultz and Briana Lozano-Villa; preserved both original places.
 2020-09-08 St. Xavier Champions Series Night 1: Normalized source time-format typo to 32:29.00 for Athlete Mae; original source retained.
 2020-09-08 St. Xavier Champions Series Night 1: Normalized source time-format typo to 32:44.00 for Molly Perry; original source retained.
+2021-09-28 Champions Series Meet 3: resolved from Complete Results page after user identified the missing race. Imported girls JV 5K, 34 finishers including 13 Sacred Heart. Used meet-page date September 28; embedded HY-TEK header says September 2 and appears stale.
