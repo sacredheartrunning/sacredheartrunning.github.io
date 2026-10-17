@@ -5,11 +5,11 @@ Original downloads and reviewed inputs are retained in data/sources.
 Meet dates come from original meet pages. For multi-day meets the first date is used.
 All athletes in selected races are retained, with Sacred Heart highlighted.
 
-NOT IMPORTED:
-2025-09-26 | On Twilight at PR'ville | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/707432
-2023-09-20 | Mental Master Tough Course Challenge | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/562132
-2022-09-24 | Midwest Catholic XC Championships | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/468580
-2022-08-23 | SHA XC Newcomer @ Seneca Series Meet 1 - HS & MS | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/486726
+NOT IMPORTED (RESOLVED):
+2025-09-26 | On Twilight at PR'ville | Not attended, per Bob's recollection on October 17, 2026; no longer awaiting results. Participation not independently verified. | https://ky.milesplit.com/meets/707432
+2023-09-20 | Mental Master Tough Course Challenge | Not attended, per Bob's recollection on October 17, 2026; no longer awaiting results. Participation not independently verified. | https://ky.milesplit.com/meets/562132
+2022-09-24 | Midwest Catholic XC Championships | Not attended, per Bob's recollection on October 17, 2026; no longer awaiting results. Participation not independently verified. | https://ky.milesplit.com/meets/468580
+2022-08-23 | SHA XC Newcomer @ Seneca Series Meet 1 - HS & MS | Not attended, per Bob's recollection on October 17, 2026; no longer awaiting results. Participation not independently verified. | https://ky.milesplit.com/meets/486726
 2021-11-13 | Maryland Private School State Championships | Different school: original results say Sacred Heart Marian, Maryland. Excluded. | https://ky.milesplit.com/meets/437343
 
 REVIEW NOTES:
