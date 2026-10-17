@@ -1,0 +1,33 @@
+SACRED HEART HISTORICAL IMPORT REVIEW - October 17, 2026
+
+Scope: girls high-school cross country, 2025 back through 2020.
+Original downloads and reviewed inputs are retained in data/sources.
+Meet dates come from original meet pages. For multi-day meets the first date is used.
+All athletes in selected races are retained, with Sacred Heart highlighted.
+
+NOT IMPORTED:
+2025-09-26 | On Twilight at PR'ville | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/707432
+2023-09-20 | Mental Master Tough Course Challenge | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/562132
+2022-09-24 | Midwest Catholic XC Championships | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/468580
+2022-08-23 | SHA XC Newcomer @ Seneca Series Meet 1 - HS & MS | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/486726
+2021-11-13 | Maryland Private School State Championships | Different school: original results say Sacred Heart Marian, Maryland. Excluded. | https://ky.milesplit.com/meets/437343
+2021-09-28 | St. X XC Champions Series Meet 3 -JV, MS & ES | No Sacred Heart high-school girls results found. | https://ky.milesplit.com/meets/437370
+
+REVIEW NOTES:
+Separate result files remain separate races, even when the feed has no division labels.
+Source ties with identical place and time are preserved.
+Different-time duplicate places require review; only the documented 2020 Champions Wave 2 source error was allowed.
+Maggie Rueff MileSplit ID 16807408 was verified against her 2026 Palindrome result to preserve her existing athlete URL.
+The full per-meet audit is data/sources/historical_import_review.json.
+2025-11-22 Nike Cross Nationals Southeast Regional: Separated source race sections by original finish place and time; names disambiguate ties.
+2025-10-03 Nike XC Town Twilight Invitational: Recovered Lindsay Peters name from original JV #1 results, place 306.
+2022-09-30 Louisville XC Classic: Separated source race sections by original finish place and time; names disambiguate ties.
+2021-10-16 KTCCCA Meet of Champions: Excluded middle-school 3K, mislabeled High School in feed.
+2021-09-17 Trinity / Valkyrie Invitational: Recovered St. Francis School from original results for Lily Paradis
+2021-09-17 Trinity / Valkyrie Invitational: Recovered St. Francis School from original results for Rosemary Peters
+2021-09-10 Rumble Through the Jungle: Recovered St. Francis School from original results for Emori Rosenbaum
+2021-09-10 Rumble Through the Jungle: Recovered St. Francis School from original results for Rosemary Peters
+2020-10-02 Louisville XC Classic: Separated source race sections by original finish place and time; names disambiguate ties.
+2020-09-22 St. Xavier Champions Series Night 2: Original source assigns place 25 to both Lena Fultz and Briana Lozano-Villa; preserved both original places.
+2020-09-08 St. Xavier Champions Series Night 1: Normalized source time-format typo to 32:29.00 for Athlete Mae; original source retained.
+2020-09-08 St. Xavier Champions Series Night 1: Normalized source time-format typo to 32:44.00 for Molly Perry; original source retained.

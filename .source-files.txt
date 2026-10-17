@@ -1,4 +1,5 @@
 source/.gitignore
+source/IMPORT_HISTORY.txt
 source/START_HERE.txt
 source/Start Sacred Heart.bat
 source/assets/SOURCES.txt

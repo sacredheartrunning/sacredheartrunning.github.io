@@ -227,5 +227,20 @@ class WorkflowTests(unittest.TestCase):
         self.assertFalse((repo/'source'/'.env').exists())
 
 
+    def test_structured_race_files_stay_separate_and_ties_are_preserved(self):
+        import milesplit
+        row=dict(id=1,meetId=1,meetResultsId=10,teamId=3710,gender='F',levelId=1,levelName='High School',divisionId=None,divisionName=None,eventCode='5000m',eventDistance=5000,round='f',roundName='Finals',athleteId=100,firstName='Runner',lastName='One',gradYear=2030,mark='19:00.12',units=1140120,place=1,teamName='Sacred Heart')
+        other={**row,'id':2,'meetResultsId':20,'athleteId':101,'lastName':'Two'}
+        doc={'_meta':{'status_code':200},'data':[row,other]}
+        with self.assertRaises(ValueError):milesplit.parse_results(doc,self.meet)
+        races=milesplit.parse_results(doc,self.meet,division_labels={'10':'Varsity','20':'JV'})
+        self.assertEqual([len(r['rows']) for r in races],[1,1])
+        other['meetResultsId']=10
+        races=milesplit.parse_results(doc,self.meet)
+        self.assertEqual(len(races[0]['rows']),2)
+        other['mark']='19:01.00';other['units']=1141000
+        with self.assertRaises(ValueError):milesplit.parse_results(doc,self.meet)
+
+
 if __name__ == "__main__":
     unittest.main()

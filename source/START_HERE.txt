@@ -148,3 +148,13 @@ To restore code from GitHub: choose Code > Download ZIP in the repository and
 copy the contents of source/ into a new Sacred Heart folder. Restore data/ and
 output/site/.athlete_urls.json from your full backup, then run the launcher.
 The recipient needs Python 3.10+; Git and repository access are needed to publish.
+
+HISTORICAL IMPORTS (2020-2025)
+See IMPORT_HISTORY.txt for coverage exceptions and reviewed source corrections.
+Use the Season dropdown on the homepage to browse an individual year.
+Option 1 is the original single-meet JV/Varsity raw-file importer. It previews
+before saving and rebuilds locally; it does not publish. It does not discover
+whole seasons, and cannot handle every historical file layout. The structured
+milesplit.py importer is used for more varied divisions. Missing labels, mixed
+races or source errors require review before import; never infer a race solely
+from runner times. Option 6 publishes the local site after imports.

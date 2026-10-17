@@ -26,10 +26,10 @@ def event_distance(row):
 
 
 def grouping(row):
-    return (row.get('gender'),str(row.get('levelId')),str(row.get('divisionId') or ''),row.get('eventCode'),str(row.get('ageGroupId') or ''),row.get('round'))
+    return (row.get('gender'),str(row.get('levelId')),str(row.get('divisionId') or ''),row.get('eventCode'),str(row.get('ageGroupId') or ''),row.get('round'),str(row.get('meetResultsId') or ''))
 
 
-def parse_results(document, meet, race_dates=None):
+def parse_results(document, meet, race_dates=None, division_labels=None, allow_duplicate_places=False):
     if document.get('_meta',{}).get('status_code')!=200 or not isinstance(document.get('data'),list):
         raise ValueError('Invalid structured results response.')
     if document.get('_links',{}).get('next'):
@@ -55,7 +55,7 @@ def parse_results(document, meet, race_dates=None):
     races=[]
     for group, items in grouped.items():
         first=items[0]
-        division=first.get('divisionName') or 'High School'
+        division=(division_labels or {}).get(str(first.get('meetResultsId')), first.get('divisionName') or 'High School')
         if first.get('ageGroupName'):
             division+=' · '+first['ageGroupName']
         race_date=(race_dates or {}).get(division,meet['date'])
@@ -71,6 +71,12 @@ def parse_results(document, meet, race_dates=None):
             if record['seconds'] is not None and abs(record['seconds']-float(r['units'])/1000)>.011:
                 raise ValueError('Formatted time and numeric time disagree.')
             rows.append(record)
+        places={}
+        for row in rows:
+            if row['place'] is not None:
+                places.setdefault(row['place'],set()).add(row['seconds'])
+        if not allow_duplicate_places and any(len(times)>1 for times in places.values()):
+            raise ValueError(f'Repeated finish places with different times in {division}; review separate races or source errors.')
         rows.sort(key=lambda r:(r['place'] is None,r['place'] or 0))
         races.append({'division':division,'distance_m':event_distance(first),'race_date':race_date,'rows':rows})
     validate_races(races)
