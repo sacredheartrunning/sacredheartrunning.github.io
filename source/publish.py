@@ -19,7 +19,7 @@ def git(repo,*args):
 
 def code_files(root):
     # Explicitly include project code/configuration; never upload data or credentials.
-    names = ['run.py', 'publish.py', 'milesplit.py', 'presentation.py',
+    names = ['run.py', 'publish.py', 'milesplit.py', 'athletic.py', 'requirements-athletic.txt', 'presentation.py',
              'settings.json', 'START_HERE.txt', 'IMPORT_HISTORY.txt', 'Start Sacred Heart.bat',
              'manual_results_template.csv', '.gitignore']
     files = [root / name for name in names]

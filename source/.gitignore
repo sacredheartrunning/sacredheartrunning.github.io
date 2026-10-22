@@ -4,5 +4,6 @@ __pycache__/
 data/*.db*
 data/backups/
 data/sources/
+data/athletic-browser-profile/
 output/
 publishing/

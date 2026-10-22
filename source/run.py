@@ -1,4 +1,4 @@
-"""Portable XC workflow. Python 3.10+; standard library only.
+"""Portable XC workflow. Python 3.10+; optional Playwright for Athletic.net.
 
 All paths are relative to this file. No imports from the surrounding St. X project.
 Source-specific readers feed a common validated race format.
@@ -280,7 +280,7 @@ def resolve_identity(conn, row, meet_date, source, previous_people):
     if source_id:
         other=conn.execute('SELECT source_athlete_id FROM athlete_source_ids WHERE source=? AND athlete_key=? AND source_athlete_id<>?',(source,key,source_id)).fetchone()
         if other:
-            raise ValueError(f"Conflicting MileSplit athlete IDs for {row['athlete']}; review before merging.")
+            raise ValueError(f"Conflicting {source} athlete IDs for {row['athlete']}; review before merging.")
         conn.execute('INSERT INTO athlete_source_ids VALUES(?,?,?)',(source,source_id,key))
     return key
 
@@ -388,7 +388,7 @@ def build_site(db_path=DB, output=None):
 
 def menu():
     while True:
-        print("\nSacred Heart Running\n1 Import MileSplit JV + Varsity\n2 Rebuild website\n3 Preview website\n4 Back up database\n5 Show command-line help (manual imports)\n6 Publish website\n7 Back up/update code on GitHub\nQ Quit")
+        print("\nSacred Heart Running\n1 Import MileSplit JV + Varsity\n2 Rebuild website\n3 Preview website\n4 Back up database\n5 Show command-line help (manual imports)\n6 Publish website\n7 Back up/update code on GitHub\n8 Import Athletic.net girls race\nQ Quit")
         choice = input("Choose: ").strip().lower()
         try:
             if choice == "q":
@@ -412,13 +412,21 @@ def menu():
                 subprocess.run([sys.executable, str(ROOT / "publish.py"), *publish_args], check=True)
             elif choice == "5":
                 print("Read START_HERE.txt, or run: python run.py --help")
+            elif choice == "8":
+                from athletic import interactive
+                interactive()
         except Exception as exc:
             print(f"Stopped: {exc}\nReview the error before retrying. Existing imports are protected by transactions.")
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == 'athletic':
+        from athletic import main as athletic_main
+        athletic_main(sys.argv[2:])
+        return
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command")
+    sub.add_parser('athletic', help='Import an Athletic.net girls race; use athletic --help for options')
     for name in ("init","build","preview","backup","publish","backup-code"):
         sub.add_parser(name)
     p = sub.add_parser("milesplit")

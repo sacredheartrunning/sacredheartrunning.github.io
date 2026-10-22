@@ -2,7 +2,8 @@ SACRED HEART RUNNING — FIRST WORKING VERSION
 
 This whole folder is the handoff unit. It has no dependency on the St. X folder,
 the original computer's username, Codex, or a Python virtual environment.
-Python 3.10 or newer is required; no additional Python packages are needed.
+Python 3.10 or newer is required. Athletic.net browser imports additionally need
+Google Chrome and Playwright; other workflows use Python's standard library.
 
 START ON WINDOWS
 Install Python 3 with the Python launcher. Double-click Start Sacred Heart.bat.
@@ -38,7 +39,34 @@ Command-line preview (no database changes):
 Add --commit to import after review. Add --replace for reviewed replacement.
 For just one division, add --divisions JV or --divisions Varsity.
 
-SCREENSHOTS, ATHLETIC.NET, AND OTHER MANUAL SOURCES
+ATHLETIC.NET
+One-time setup in this folder, using the Python that runs this application:
+  python -m pip install -r requirements-athletic.txt
+Install Google Chrome if it is not already installed. If using the Windows
+Python launcher, substitute py -3 for python in these commands.
+Menu option 8 previews and imports one high-school girls race at a time.
+Paste its Results URL, not the meet Info URL. For example:
+  https://www.athletic.net/CrossCountry/meet/286720/results/1142183
+Chrome opens the race; complete any browser check in the browser if requested.
+Review the meet date, division, total results and Sacred Heart runners before
+confirming. The importer saves the original HTML and a JSON snapshot under
+data/sources, backs up the database, and rebuilds the local site after import.
+Choose option 6 to publish the updated website and option 7 to back up code.
+
+Command-line preview:
+  python run.py athletic "https://www.athletic.net/CrossCountry/meet/286720/results/1142183"
+Add --commit after review. Reimports also require --replace; supply the whole race.
+To replay a saved snapshot offline:
+  python run.py athletic --saved "data/sources/SNAPSHOT.json" --commit
+If a meet already exists that day under another source, review its identity and
+use --meet-key with its existing key. Never create a duplicate to bypass a warning.
+Only the selected girls race is loaded, including opponents. No varsity race is
+invented for JV-only meets. Stable Athletic.net athlete IDs reuse unambiguous
+existing histories. Review ambiguous identities before proceeding.
+The browser adapter depends on Athletic.net's page layout; validation errors
+require review rather than guessing. Private browser profiles stay local.
+
+SCREENSHOTS AND OTHER MANUAL SOURCES
 Use a copy of manual_results_template.csv. Enter one row per runner:
 place,bib,athlete,grade,gender,team,time,status,athlete_id
 Use F for gender, time as 19:23.45, and status FINISHED (or blank).
@@ -48,7 +76,7 @@ The file can be edited in Excel and saved as CSV UTF-8.
 
 Screenshot transcription must be checked against the original before import.
 Keep the original image in data/sources and identify it in --source-url. This
-version does not automatically read screenshots or scrape Athletic.net.
+version does not automatically read screenshots.
 
 Example preview, from this folder:
   python run.py csv "data/sources/reviewed.csv" --meet-key "milesplit:771610" --name "STXXC Tiger Run 2026" --date 2026-08-22 --division JV --distance 5000 --source manual --source-url "Screenshot: tiger-jv.png"
@@ -103,10 +131,11 @@ TESTS
   python -m unittest discover -s tests -v
 
 NEXT
-2026 meets through Haunted Woods (October 10) have been imported.
+2026 meets through Haunted Woods (October 10), plus Metro JV Regional girls JV
+(October 22: 121 results, 29 Sacred Heart), have been imported.
 October 17 Kentucky JV Championships was still awaiting posted results at review.
-Historical season discovery, team scores, verified roster identities, and automated
-Athletic.net/browser import remain follow-up work.
+Historical season discovery, team scores, and verified roster identities remain
+follow-up work.
 
 STRUCTURED MILESPLIT IMPORTS
 The public results feed supplies explicit divisions and stable athlete IDs.
@@ -162,3 +191,8 @@ from runner times. Option 6 publishes the local site after imports.
 2015-2019 have now been added (62 meets). The 2015 schedule endpoint returns
 the wrong season; fetch_schedule now rejects that fallback. Individual official
 meet-history links supplied 2015 results. See IMPORT_HISTORY.txt for caveats.
+
+2010-2014 have now been added (47 meets, 1,265 Sacred Heart performances).
+Use the Season dropdown to browse 2010 onward. These archives are not a claim
+of complete season coverage. IMPORT_HISTORY.txt describes source corrections,
+coverage limits, the preserved existing data, and the pre-import backup.

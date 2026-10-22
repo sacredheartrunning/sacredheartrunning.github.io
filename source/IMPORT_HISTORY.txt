@@ -60,3 +60,73 @@ Full source and correction audit: data/sources/archive_2015_2019_ready.json.
 October 17, 2026 completion: 62 meets / 1,786 Sacred Heart performances added for 2015-2019.
 Ella Powell: 2019 Metro JV row has no grade or source ID; kept separate from 2017 freshman history at Bob's request because identity is unconfirmed.
 Emma Johnson: retained separate source IDs/cohorts (class 2019 and class 2024); these are not merged merely because names match.
+
+
+2010-2014 ARCHIVE REVIEW (October 18, 2026)
+Added 47 meets, 88 races, and 1,265 Sacred Heart performances. Opponents in
+selected races are retained. Original downloads, reviewed race inputs and the
+complete import audit are in data/sources/archive_2010_2014_completed.json.
+
+Year | Meets | Sacred Heart performances | All result rows
+2010 | 7     | 179                       | 2,277
+2011 | 11    | 271                       | 3,169
+2012 | 8     | 212                       | 3,014
+2013 | 11    | 289                       | 2,938
+2014 | 10    | 314                       | 3,674
+
+Coverage is available verified history, not a claim of complete season coverage.
+All five team-schedule requests silently returned another season and were
+rejected. Candidates came from official dated meet-history links and existing
+local meet source links. Only actual Sacred Heart girls results established
+participation. Unmatched candidates do not establish attendance or absence.
+The candidate audit is archive_2010_2014_review.json; original race file titles
+and headings are recorded in archive_2010_2014_raw_index.json.
+
+Source review and corrections:
+- Original race-file labels restore JV, Varsity, Freshman, Gold, Open, class,
+  and other divisions where the structured feed labels every race High School.
+- Brown County 2011 and 2012 Varsity Class A and AA are separated using the
+  original section headings and finish place/time. Only the Sacred Heart
+  division is imported. The incomplete 2011 JV feed was rebuilt from all 184
+  original finishers, including 15 Sacred Heart runners.
+- Trinity/Valkyrie 2013 Varsity and 2014 JV were rebuilt from original rows to
+  correct shifted places and time discrepancies in the structured feed.
+- Trinity/Valkyrie 2014 Varsity Midwest, South and Non-Award sections are kept
+  distinct. Sacred Heart competed in South. The original South file skips
+  place 124 and gives Ashley Reyna-padilla two conflicting entries at place
+  216 (21:12.50 and 21:23.90). Both unresolved opponent entries are omitted;
+  original evidence is retained and a meet-page note discloses the gap. No
+  team scores are inferred. All six published Sacred Heart South rows remain.
+- Ryen Frazier's missing school is restored as Ravenscroft from the original
+  2013 and 2014 Great American result files.
+- Jenna Marchese's missing name is restored from the 2010 Midwest Meet of
+  Champions Open result at place 153, 31:59.00.
+- Katie Keynton's original result name is restored in place of an incorrectly
+  linked Katie Fenton profile; the mismatched profile ID is removed.
+- Conflicting opponent profile IDs for Sara Mera Carreiro and Kiley Von Lintel
+  remain separate source identities. Names alone do not authorize a merge.
+- The 2012 AAU National Championships 7-8 age-group result is excluded; the
+  feed incorrectly classifies that youth race as High School.
+- Source profile names are otherwise used where available; original source
+  files retain spelling variants, abbreviations and source-grade differences.
+
+Validation:
+The import was rehearsed on a staging database. Every existing meet, race,
+result, import-run row and source-ID mapping was checked against the live
+pre-import database and preserved. SQLite integrity and foreign-key checks
+passed. The local preview's links, new season options, and existing athlete
+URL assignments were verified before promotion. A SQLite backup was created
+before the live database was updated. The 19 existing workflow tests passed.
+
+2026-10-22 - Athletic.net Metro JV Regional
+Imported meet 286720, girls race 1142183, JV 5,000 meters only:
+121 results including 29 Sacred Heart runners. All 29 matched existing athlete
+histories. No varsity race was added. Original browser HTML and JSON snapshot
+are retained in data/sources with content hashes. Pre-import backup:
+data/backups/sacred_heart_20261022_182425_108647.db.
+All prior database rows were preserved; integrity and foreign-key checks passed.
+Added standalone athletic.py browser importer, launcher option 8, offline replay,
+explicit replacement protection, girls/level/metadata validation and same-date
+cross-source duplicate guard. Optional Playwright setup is documented in
+START_HERE.txt. The Windows launcher now falls back to python when py -3 has no
+registered interpreter. All 23 workflow tests passed.

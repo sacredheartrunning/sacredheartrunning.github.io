@@ -1,0 +1,2 @@
+# Optional browser importer; the other Sacred Heart workflows use the standard library.
+playwright>=1.54,<2

@@ -6,10 +6,13 @@ source/assets/SOURCES.txt
 source/assets/school-logo.png
 source/assets/site.css
 source/assets/site.js
+source/athletic.py
 source/manual_results_template.csv
 source/milesplit.py
 source/presentation.py
 source/publish.py
+source/requirements-athletic.txt
 source/run.py
 source/settings.json
+source/tests/test_athletic.py
 source/tests/test_workflow.py
