@@ -1,21 +1,21 @@
-﻿date,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
-2016-10-27,Louisville Area JV Regional,JV,5000,23,Caroline Tafel,11,Sacred Heart,21:52.66,FINISHED,milesplit,https://ky.milesplit.com/meets/250694/results
-2016-10-15,Lexington Catholic Invitational,JV,5000,8,Caroline Tafel,11,Sacred Heart,22:10.18,FINISHED,milesplit,https://ky.milesplit.com/meets/244925/results
-2016-10-08,South Oldham Dragon Invitational,Varsity,5000,24,Caroline Tafel,11,Sacred Heart,23:14.47,FINISHED,milesplit,https://ky.milesplit.com/meets/248839/results
-2016-09-03,Central Kentucky Run for the Gold,JV,5000,8,Caroline Tafel,11,Sacred Heart,22:30.00,FINISHED,milesplit,https://ky.milesplit.com/meets/248076/results
-2015-11-07,Kentucky State Cross Country Meet,3A,5000,72,Caroline Tafel,10,Sacred Heart,20:21.15,FINISHED,milesplit,https://ky.milesplit.com/meets/213723/results
-2015-10-31,Region 4 AAA,Varsity,5000,18,Caroline Tafel,10,Sacred Heart,19:50.25,FINISHED,milesplit,https://ky.milesplit.com/meets/221054/results
-2015-10-17,Lexington Catholic Invitational,Large School,5000,57,Caroline Tafel,10,Sacred Heart,20:29.81,FINISHED,milesplit,https://ky.milesplit.com/meets/214007/results
-2015-10-02,Greater Louisville Classic,Varsity,5000,62,Caroline Tafel,10,Sacred Heart,20:32.53,FINISHED,milesplit,https://ky.milesplit.com/meets/211587/results
-2015-09-26,Midwest Catholic Championships,Varsity,5000,31,Caroline Tafel,10,Sacred Heart,20:50.30,FINISHED,milesplit,https://ky.milesplit.com/meets/212720/results
-2015-09-19,Trinity / Valkyrie Invitational (HS),Seeded,5000,102,Caroline Tafel,10,Sacred Heart,21:00.40,FINISHED,milesplit,https://ky.milesplit.com/meets/213359/results
-2015-09-12,Brown County Eagle Classic,Varsity,5000,58,Caroline Tafel,10,Sacred Heart,20:24.06,FINISHED,milesplit,https://ky.milesplit.com/meets/214315/results
-2015-08-29,Tiger Run,Varsity,5000,21,Caroline Tafel,10,Sacred Heart,21:24.43,FINISHED,milesplit,https://ky.milesplit.com/meets/211586/results
-2014-11-08,Kentucky State Cross Country Meet 2014,3A,5000,50,Caroline Tafel,9,Sacred Heart,20:45.84,FINISHED,milesplit,https://ky.milesplit.com/meets/178796/results
-2014-10-18,Lexington Catholic Invitational 2014,Large School,5000,47,Caroline Tafel,9,Sacred Heart,20:45.91,FINISHED,milesplit,https://ky.milesplit.com/meets/179647/results
-2014-10-04,Great American XC Festival 2014,Red,5000,34,Caroline Tafel,9,Sacred Heart,20:31.65,FINISHED,milesplit,https://ky.milesplit.com/meets/179214/results
-2014-09-27,Midwest Meet of Champions 2014,Open,5000,3,Caroline Tafel,9,Sacred Heart,21:15.58,FINISHED,milesplit,https://ky.milesplit.com/meets/179868/results
-2014-09-20,Trinity/Valkyrie Invitational (HS) 2014,JV,5000,21,Caroline Tafel,9,Sacred Heart,21:00.51,FINISHED,milesplit,https://ky.milesplit.com/meets/177812/results
-2014-09-13,Brown County Eagle Classic 2014,JV,5000,24,Caroline Tafel,9,Sacred Heart,20:54.21,FINISHED,milesplit,https://ky.milesplit.com/meets/182245/results
-2014-09-06,Central Kentucky Run for the Gold 2014,Varsity,5000,23,Caroline Tafel,9,Sacred Heart,21:00.99,FINISHED,milesplit,https://ky.milesplit.com/meets/178217/results
-2014-08-30,Tiger Run 2014,Freshman,4000,4,Caroline Tafel,9,Sacred Heart,17:21.81,FINISHED,milesplit,https://ky.milesplit.com/meets/178210/results
+﻿date,sport,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
+2016-10-27,xc,Louisville Area JV Regional,JV,5000,23,Caroline Tafel,11,Sacred Heart,21:52.66,FINISHED,milesplit,https://ky.milesplit.com/meets/250694/results
+2016-10-15,xc,Lexington Catholic Invitational,JV,5000,8,Caroline Tafel,11,Sacred Heart,22:10.18,FINISHED,milesplit,https://ky.milesplit.com/meets/244925/results
+2016-10-08,xc,South Oldham Dragon Invitational,Varsity,5000,24,Caroline Tafel,11,Sacred Heart,23:14.47,FINISHED,milesplit,https://ky.milesplit.com/meets/248839/results
+2016-09-03,xc,Central Kentucky Run for the Gold,JV,5000,8,Caroline Tafel,11,Sacred Heart,22:30.00,FINISHED,milesplit,https://ky.milesplit.com/meets/248076/results
+2015-11-07,xc,Kentucky State Cross Country Meet,3A,5000,72,Caroline Tafel,10,Sacred Heart,20:21.15,FINISHED,milesplit,https://ky.milesplit.com/meets/213723/results
+2015-10-31,xc,Region 4 AAA,Varsity,5000,18,Caroline Tafel,10,Sacred Heart,19:50.25,FINISHED,milesplit,https://ky.milesplit.com/meets/221054/results
+2015-10-17,xc,Lexington Catholic Invitational,Large School,5000,57,Caroline Tafel,10,Sacred Heart,20:29.81,FINISHED,milesplit,https://ky.milesplit.com/meets/214007/results
+2015-10-02,xc,Greater Louisville Classic,Varsity,5000,62,Caroline Tafel,10,Sacred Heart,20:32.53,FINISHED,milesplit,https://ky.milesplit.com/meets/211587/results
+2015-09-26,xc,Midwest Catholic Championships,Varsity,5000,31,Caroline Tafel,10,Sacred Heart,20:50.30,FINISHED,milesplit,https://ky.milesplit.com/meets/212720/results
+2015-09-19,xc,Trinity / Valkyrie Invitational (HS),Seeded,5000,102,Caroline Tafel,10,Sacred Heart,21:00.40,FINISHED,milesplit,https://ky.milesplit.com/meets/213359/results
+2015-09-12,xc,Brown County Eagle Classic,Varsity,5000,58,Caroline Tafel,10,Sacred Heart,20:24.06,FINISHED,milesplit,https://ky.milesplit.com/meets/214315/results
+2015-08-29,xc,Tiger Run,Varsity,5000,21,Caroline Tafel,10,Sacred Heart,21:24.43,FINISHED,milesplit,https://ky.milesplit.com/meets/211586/results
+2014-11-08,xc,Kentucky State Cross Country Meet 2014,3A,5000,50,Caroline Tafel,9,Sacred Heart,20:45.84,FINISHED,milesplit,https://ky.milesplit.com/meets/178796/results
+2014-10-18,xc,Lexington Catholic Invitational 2014,Large School,5000,47,Caroline Tafel,9,Sacred Heart,20:45.91,FINISHED,milesplit,https://ky.milesplit.com/meets/179647/results
+2014-10-04,xc,Great American XC Festival 2014,Red,5000,34,Caroline Tafel,9,Sacred Heart,20:31.65,FINISHED,milesplit,https://ky.milesplit.com/meets/179214/results
+2014-09-27,xc,Midwest Meet of Champions 2014,Open,5000,3,Caroline Tafel,9,Sacred Heart,21:15.58,FINISHED,milesplit,https://ky.milesplit.com/meets/179868/results
+2014-09-20,xc,Trinity/Valkyrie Invitational (HS) 2014,JV,5000,21,Caroline Tafel,9,Sacred Heart,21:00.51,FINISHED,milesplit,https://ky.milesplit.com/meets/177812/results
+2014-09-13,xc,Brown County Eagle Classic 2014,JV,5000,24,Caroline Tafel,9,Sacred Heart,20:54.21,FINISHED,milesplit,https://ky.milesplit.com/meets/182245/results
+2014-09-06,xc,Central Kentucky Run for the Gold 2014,Varsity,5000,23,Caroline Tafel,9,Sacred Heart,21:00.99,FINISHED,milesplit,https://ky.milesplit.com/meets/178217/results
+2014-08-30,xc,Tiger Run 2014,Freshman,4000,4,Caroline Tafel,9,Sacred Heart,17:21.81,FINISHED,milesplit,https://ky.milesplit.com/meets/178210/results

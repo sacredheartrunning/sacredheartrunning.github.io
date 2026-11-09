@@ -1,15 +1,16 @@
-﻿date,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
-2026-10-22,Metro JV Regional XC presented by DC Timing,JV,5000,7,Ava Poston,11,Sacred Heart,20:14.6,FINISHED,athletic.net,https://www.athletic.net/CrossCountry/meet/286720/results/1142183
-2026-10-10,Haunted Woods Classic,Varsity,5000,15,Ava Poston,11,Sacred Heart,20:33.00,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
-2026-10-03,Nike XC Town Twilight Invitational,JV Saturday Green,5000,2,Ava Poston,11,Sacred Heart,20:50.80,FINISHED,milesplit,https://ky.milesplit.com/meets/787649/results?type=formatted
-2026-09-23,"St. X XC Champions Series Meet 2 -JV, MS & ES",JV,5000,1,Ava Poston,11,Sacred Heart,20:50.20,FINISHED,milesplit,https://ky.milesplit.com/meets/766785/results?type=formatted
-2026-09-19,Trinity / Valkyrie Invitational,Championship,5000,104,Ava Poston,11,Sacred Heart,20:58.60,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
-2026-09-05,Ryle Invite,Varsity,5000,17,Ava Poston,11,Sacred Heart,21:21.82,FINISHED,milesplit,https://ky.milesplit.com/meets/755559/results?type=formatted
-2026-08-08,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,15,Ava Poston,11,Sacred Heart,12:50.46,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
-2025-11-22,Nike Cross Nationals Southeast Regional,Invite 1,5000,258,Ava Poston,10,Sacred Heart,22:30.40,FINISHED,milesplit,https://ky.milesplit.com/meets/715381/results?type=formatted
-2025-10-23,Metro JV Regional XC,JV,5000,15,Ava Poston,10,Sacred Heart,21:18.08,FINISHED,milesplit,https://ky.milesplit.com/meets/715412/results?type=formatted
-2025-10-11,Haunted Woods Classic,Varsity,5000,66,Ava Poston,10,Sacred Heart,22:55.21,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
-2025-09-19,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,11,Ava Poston,10,Sacred Heart,22:45.30,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted
-2025-08-30,STXXC Tiger Run,JV,5000,21,Ava Poston,10,Sacred Heart,23:09.17,FINISHED,milesplit,https://ky.milesplit.com/meets/687593/results?type=formatted
-2024-10-24,Metro JV Regional XC,JV,5000,40,Ava Poston,9,Sacred Heart,22:45.11,FINISHED,milesplit,https://ky.milesplit.com/meets/644639/results?type=formatted
-2024-08-24,St Xavier Tiger Run,JV,5000,9,Ava Poston,9,Sacred Heart,23:05.76,FINISHED,milesplit,https://ky.milesplit.com/meets/635352/results?type=formatted
+﻿date,sport,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
+2026-11-07,track,Lloyd White Distance Festival,Varsity,3200,35,Ava Poston,11,Sacred Heart,11:58.41,FINISHED,athletic.live,https://live.dcracetiming.com/meets/80264/events/individual/2942954
+2026-10-22,xc,Metro JV Regional XC presented by DC Timing,JV,5000,7,Ava Poston,11,Sacred Heart,20:14.6,FINISHED,athletic.net,https://www.athletic.net/CrossCountry/meet/286720/results/1142183
+2026-10-10,xc,Haunted Woods Classic,Varsity,5000,15,Ava Poston,11,Sacred Heart,20:33.00,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
+2026-10-03,xc,Nike XC Town Twilight Invitational,JV Saturday Green,5000,2,Ava Poston,11,Sacred Heart,20:50.80,FINISHED,milesplit,https://ky.milesplit.com/meets/787649/results?type=formatted
+2026-09-23,xc,"St. X XC Champions Series Meet 2 -JV, MS & ES",JV,5000,1,Ava Poston,11,Sacred Heart,20:50.20,FINISHED,milesplit,https://ky.milesplit.com/meets/766785/results?type=formatted
+2026-09-19,xc,Trinity / Valkyrie Invitational,Championship,5000,104,Ava Poston,11,Sacred Heart,20:58.60,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
+2026-09-05,xc,Ryle Invite,Varsity,5000,17,Ava Poston,11,Sacred Heart,21:21.82,FINISHED,milesplit,https://ky.milesplit.com/meets/755559/results?type=formatted
+2026-08-08,xc,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,15,Ava Poston,11,Sacred Heart,12:50.46,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
+2025-11-22,xc,Nike Cross Nationals Southeast Regional,Invite 1,5000,258,Ava Poston,10,Sacred Heart,22:30.40,FINISHED,milesplit,https://ky.milesplit.com/meets/715381/results?type=formatted
+2025-10-23,xc,Metro JV Regional XC,JV,5000,15,Ava Poston,10,Sacred Heart,21:18.08,FINISHED,milesplit,https://ky.milesplit.com/meets/715412/results?type=formatted
+2025-10-11,xc,Haunted Woods Classic,Varsity,5000,66,Ava Poston,10,Sacred Heart,22:55.21,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
+2025-09-19,xc,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,11,Ava Poston,10,Sacred Heart,22:45.30,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted
+2025-08-30,xc,STXXC Tiger Run,JV,5000,21,Ava Poston,10,Sacred Heart,23:09.17,FINISHED,milesplit,https://ky.milesplit.com/meets/687593/results?type=formatted
+2024-10-24,xc,Metro JV Regional XC,JV,5000,40,Ava Poston,9,Sacred Heart,22:45.11,FINISHED,milesplit,https://ky.milesplit.com/meets/644639/results?type=formatted
+2024-08-24,xc,St Xavier Tiger Run,JV,5000,9,Ava Poston,9,Sacred Heart,23:05.76,FINISHED,milesplit,https://ky.milesplit.com/meets/635352/results?type=formatted

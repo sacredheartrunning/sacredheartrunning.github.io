@@ -1,16 +1,16 @@
-﻿date,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
-2026-10-31,2026 KHSAA State Cross Country Championships,Class 3A Varsity,5000,22,Ellery Eblen,,Sacred Heart,19:16.37,FINISHED,milesplit,https://milesplit.live/meets/774035/events/1/results/F/F
-2026-10-24,KHSAA Region 4 Class 3A 2026,Varsity,5000,7,Ellery Eblen,10,Sacred Heart,19:11.35,FINISHED,milesplit,https://ky.milesplit.com/meets/774043-khsaa-region-4-class-3a-2026/results?type=formatted&event=5000m&gender=Girls&division=Varsity
-2026-10-10,Haunted Woods Classic,Varsity,5000,7,Ellery Eblen,10,Sacred Heart,19:45.30,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
-2026-10-03,Nike XC Town Twilight Invitational,Championship,5000,160,Ellery Eblen,10,Sacred Heart,19:52.20,FINISHED,milesplit,https://ky.milesplit.com/meets/787649/results?type=formatted
-2026-09-26,Palatine Invite - Meet of Champions,JV,4828.032,5,Ellery Eblen,10,Sacred Heart,19:18.10,FINISHED,milesplit,https://ky.milesplit.com/meets/776744/results?type=formatted
-2026-09-19,Trinity / Valkyrie Invitational,Championship,5000,79,Ellery Eblen,10,Sacred Heart,20:26.92,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
-2026-09-05,Ryle Invite,Varsity,5000,12,Ellery Eblen,10,Sacred Heart,20:50.11,FINISHED,milesplit,https://ky.milesplit.com/meets/755559/results?type=formatted
-2026-08-22,STXXC Tiger Run 2026,Varsity,5000,47,Ellery Eblen,10,Sacred Heart,20:47.77,FINISHED,milesplit,https://ky.milesplit.com/meets/771610-stxxc-tiger-run-2026/results/1313201/raw
-2026-08-08,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,7,Ellery Eblen,10,Sacred Heart,12:16.35,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
-2025-11-22,Nike Cross Nationals Southeast Regional,Invite 1,5000,189,Ellery Eblen,9,Sacred Heart,21:21.20,FINISHED,milesplit,https://ky.milesplit.com/meets/715381/results?type=formatted
-2025-10-25,KHSAA Region 4 Class 3A,3A,5000,22,Ellery Eblen,9,Sacred Heart,20:09.00,FINISHED,milesplit,https://ky.milesplit.com/meets/710648/results?type=formatted
-2025-10-11,Haunted Woods Classic,Varsity,5000,26,Ellery Eblen,9,Sacred Heart,20:57.48,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
-2025-10-03,Nike XC Town Twilight Invitational,Championship,5000,290,Ellery Eblen,9,Sacred Heart,21:22.74,FINISHED,milesplit,https://ky.milesplit.com/meets/709341/results?type=formatted
-2025-09-27,Hillbilly Run,JV,5000,1,Ellery Eblen,9,Sacred Heart,20:51.01,FINISHED,milesplit,https://ky.milesplit.com/meets/694963/results?type=formatted
-2025-09-19,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,5,Ellery Eblen,9,Sacred Heart,21:40.40,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted
+﻿date,sport,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
+2026-10-31,xc,2026 KHSAA State Cross Country Championships,Class 3A Varsity,5000,22,Ellery Eblen,,Sacred Heart,19:16.37,FINISHED,milesplit,https://milesplit.live/meets/774035/events/1/results/F/F
+2026-10-24,xc,KHSAA Region 4 Class 3A 2026,Varsity,5000,7,Ellery Eblen,10,Sacred Heart,19:11.35,FINISHED,milesplit,https://ky.milesplit.com/meets/774043-khsaa-region-4-class-3a-2026/results?type=formatted&event=5000m&gender=Girls&division=Varsity
+2026-10-10,xc,Haunted Woods Classic,Varsity,5000,7,Ellery Eblen,10,Sacred Heart,19:45.30,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
+2026-10-03,xc,Nike XC Town Twilight Invitational,Championship,5000,160,Ellery Eblen,10,Sacred Heart,19:52.20,FINISHED,milesplit,https://ky.milesplit.com/meets/787649/results?type=formatted
+2026-09-26,xc,Palatine Invite - Meet of Champions,JV,4828.032,5,Ellery Eblen,10,Sacred Heart,19:18.10,FINISHED,milesplit,https://ky.milesplit.com/meets/776744/results?type=formatted
+2026-09-19,xc,Trinity / Valkyrie Invitational,Championship,5000,79,Ellery Eblen,10,Sacred Heart,20:26.92,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
+2026-09-05,xc,Ryle Invite,Varsity,5000,12,Ellery Eblen,10,Sacred Heart,20:50.11,FINISHED,milesplit,https://ky.milesplit.com/meets/755559/results?type=formatted
+2026-08-22,xc,STXXC Tiger Run 2026,Varsity,5000,47,Ellery Eblen,10,Sacred Heart,20:47.77,FINISHED,milesplit,https://ky.milesplit.com/meets/771610-stxxc-tiger-run-2026/results/1313201/raw
+2026-08-08,xc,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,7,Ellery Eblen,10,Sacred Heart,12:16.35,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
+2025-11-22,xc,Nike Cross Nationals Southeast Regional,Invite 1,5000,189,Ellery Eblen,9,Sacred Heart,21:21.20,FINISHED,milesplit,https://ky.milesplit.com/meets/715381/results?type=formatted
+2025-10-25,xc,KHSAA Region 4 Class 3A,3A,5000,22,Ellery Eblen,9,Sacred Heart,20:09.00,FINISHED,milesplit,https://ky.milesplit.com/meets/710648/results?type=formatted
+2025-10-11,xc,Haunted Woods Classic,Varsity,5000,26,Ellery Eblen,9,Sacred Heart,20:57.48,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
+2025-10-03,xc,Nike XC Town Twilight Invitational,Championship,5000,290,Ellery Eblen,9,Sacred Heart,21:22.74,FINISHED,milesplit,https://ky.milesplit.com/meets/709341/results?type=formatted
+2025-09-27,xc,Hillbilly Run,JV,5000,1,Ellery Eblen,9,Sacred Heart,20:51.01,FINISHED,milesplit,https://ky.milesplit.com/meets/694963/results?type=formatted
+2025-09-19,xc,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,5,Ellery Eblen,9,Sacred Heart,21:40.40,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted

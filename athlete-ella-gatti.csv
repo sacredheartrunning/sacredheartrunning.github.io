@@ -1,20 +1,21 @@
-﻿date,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
-2026-10-24,KHSAA Region 4 Class 3A 2026,Varsity,5000,14,Ella Gatti,12,Sacred Heart,19:40.24,FINISHED,milesplit,https://ky.milesplit.com/meets/774043-khsaa-region-4-class-3a-2026/results?type=formatted&event=5000m&gender=Girls&division=Varsity
-2026-10-22,Metro JV Regional XC presented by DC Timing,JV,5000,2,Ella Gatti,12,Sacred Heart,19:39.9,FINISHED,athletic.net,https://www.athletic.net/CrossCountry/meet/286720/results/1142183
-2026-10-10,Haunted Woods Classic,Varsity,5000,17,Ella Gatti,12,Sacred Heart,20:35.70,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
-2026-10-03,Nike XC Town Twilight Invitational,Championship,5000,218,Ella Gatti,12,Sacred Heart,20:21.50,FINISHED,milesplit,https://ky.milesplit.com/meets/787649/results?type=formatted
-2026-09-26,Palatine Invite - Meet of Champions,JV,4828.032,19,Ella Gatti,12,Sacred Heart,19:57.50,FINISHED,milesplit,https://ky.milesplit.com/meets/776744/results?type=formatted
-2026-09-19,Trinity / Valkyrie Invitational,Championship,5000,92,Ella Gatti,12,Sacred Heart,20:46.43,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
-2026-08-22,STXXC Tiger Run 2026,Varsity,5000,41,Ella Gatti,12,Sacred Heart,20:40.80,FINISHED,milesplit,https://ky.milesplit.com/meets/771610-stxxc-tiger-run-2026/results/1313201/raw
-2026-08-08,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,17,Ella Gatti,12,Sacred Heart,12:56.89,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
-2025-10-23,Metro JV Regional XC,JV,5000,21,Ella Gatti,11,Sacred Heart,21:44.37,FINISHED,milesplit,https://ky.milesplit.com/meets/715412/results?type=formatted
-2025-10-11,Haunted Woods Classic,Varsity,5000,39,Ella Gatti,11,Sacred Heart,21:32.09,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
-2025-10-03,Nike XC Town Twilight Invitational,Championship,5000,286,Ella Gatti,11,Sacred Heart,21:20.00,FINISHED,milesplit,https://ky.milesplit.com/meets/709341/results?type=formatted
-2025-09-27,Hillbilly Run,Varsity,5000,64,Ella Gatti,11,Sacred Heart,22:26.89,FINISHED,milesplit,https://ky.milesplit.com/meets/694963/results?type=formatted
-2025-09-19,Trinity / Valkyrie Invitational,Rick Heim,5000,142,Ella Gatti,11,Sacred Heart,21:57.60,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted
-2025-08-30,STXXC Tiger Run,Varsity,5000,54,Ella Gatti,11,Sacred Heart,21:52.28,FINISHED,milesplit,https://ky.milesplit.com/meets/687593/results?type=formatted
-2024-09-25,St. X XC Champions Series Meet 2,JV,5000,7,Ella Gatti,10,Sacred Heart,23:27.57,FINISHED,milesplit,https://ky.milesplit.com/meets/626736/results?type=formatted
-2024-09-20,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,35,Ella Gatti,10,Sacred Heart,23:44.97,FINISHED,milesplit,https://ky.milesplit.com/meets/598802/results?type=formatted
-2024-09-13,The Southern Showcase - Powered by Huntsville High School,Blue,5000,217,Ella Gatti,10,Sacred Heart,24:22.66,FINISHED,milesplit,https://ky.milesplit.com/meets/582631/results?type=formatted
-2024-08-31,Central Kentucky Run for the Gold,JV,5000,47,Ella Gatti,10,Sacred Heart,23:52.40,FINISHED,milesplit,https://ky.milesplit.com/meets/616960/results?type=formatted
-2024-08-24,St Xavier Tiger Run,JV,5000,33,Ella Gatti,10,Sacred Heart,24:12.33,FINISHED,milesplit,https://ky.milesplit.com/meets/635352/results?type=formatted
+﻿date,sport,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
+2026-11-07,track,Lloyd White Distance Festival,Varsity,3200,38,Ella Gatti,12,Sacred Heart,12:04.08,FINISHED,athletic.live,https://live.dcracetiming.com/meets/80264/events/individual/2942954
+2026-10-24,xc,KHSAA Region 4 Class 3A 2026,Varsity,5000,14,Ella Gatti,12,Sacred Heart,19:40.24,FINISHED,milesplit,https://ky.milesplit.com/meets/774043-khsaa-region-4-class-3a-2026/results?type=formatted&event=5000m&gender=Girls&division=Varsity
+2026-10-22,xc,Metro JV Regional XC presented by DC Timing,JV,5000,2,Ella Gatti,12,Sacred Heart,19:39.9,FINISHED,athletic.net,https://www.athletic.net/CrossCountry/meet/286720/results/1142183
+2026-10-10,xc,Haunted Woods Classic,Varsity,5000,17,Ella Gatti,12,Sacred Heart,20:35.70,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
+2026-10-03,xc,Nike XC Town Twilight Invitational,Championship,5000,218,Ella Gatti,12,Sacred Heart,20:21.50,FINISHED,milesplit,https://ky.milesplit.com/meets/787649/results?type=formatted
+2026-09-26,xc,Palatine Invite - Meet of Champions,JV,4828.032,19,Ella Gatti,12,Sacred Heart,19:57.50,FINISHED,milesplit,https://ky.milesplit.com/meets/776744/results?type=formatted
+2026-09-19,xc,Trinity / Valkyrie Invitational,Championship,5000,92,Ella Gatti,12,Sacred Heart,20:46.43,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
+2026-08-22,xc,STXXC Tiger Run 2026,Varsity,5000,41,Ella Gatti,12,Sacred Heart,20:40.80,FINISHED,milesplit,https://ky.milesplit.com/meets/771610-stxxc-tiger-run-2026/results/1313201/raw
+2026-08-08,xc,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,17,Ella Gatti,12,Sacred Heart,12:56.89,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
+2025-10-23,xc,Metro JV Regional XC,JV,5000,21,Ella Gatti,11,Sacred Heart,21:44.37,FINISHED,milesplit,https://ky.milesplit.com/meets/715412/results?type=formatted
+2025-10-11,xc,Haunted Woods Classic,Varsity,5000,39,Ella Gatti,11,Sacred Heart,21:32.09,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
+2025-10-03,xc,Nike XC Town Twilight Invitational,Championship,5000,286,Ella Gatti,11,Sacred Heart,21:20.00,FINISHED,milesplit,https://ky.milesplit.com/meets/709341/results?type=formatted
+2025-09-27,xc,Hillbilly Run,Varsity,5000,64,Ella Gatti,11,Sacred Heart,22:26.89,FINISHED,milesplit,https://ky.milesplit.com/meets/694963/results?type=formatted
+2025-09-19,xc,Trinity / Valkyrie Invitational,Rick Heim,5000,142,Ella Gatti,11,Sacred Heart,21:57.60,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted
+2025-08-30,xc,STXXC Tiger Run,Varsity,5000,54,Ella Gatti,11,Sacred Heart,21:52.28,FINISHED,milesplit,https://ky.milesplit.com/meets/687593/results?type=formatted
+2024-09-25,xc,St. X XC Champions Series Meet 2,JV,5000,7,Ella Gatti,10,Sacred Heart,23:27.57,FINISHED,milesplit,https://ky.milesplit.com/meets/626736/results?type=formatted
+2024-09-20,xc,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,35,Ella Gatti,10,Sacred Heart,23:44.97,FINISHED,milesplit,https://ky.milesplit.com/meets/598802/results?type=formatted
+2024-09-13,xc,The Southern Showcase - Powered by Huntsville High School,Blue,5000,217,Ella Gatti,10,Sacred Heart,24:22.66,FINISHED,milesplit,https://ky.milesplit.com/meets/582631/results?type=formatted
+2024-08-31,xc,Central Kentucky Run for the Gold,JV,5000,47,Ella Gatti,10,Sacred Heart,23:52.40,FINISHED,milesplit,https://ky.milesplit.com/meets/616960/results?type=formatted
+2024-08-24,xc,St Xavier Tiger Run,JV,5000,33,Ella Gatti,10,Sacred Heart,24:12.33,FINISHED,milesplit,https://ky.milesplit.com/meets/635352/results?type=formatted

@@ -1,15 +1,15 @@
-﻿date,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
-2026-10-22,Metro JV Regional XC presented by DC Timing,JV,5000,39,Jules Thomas,10,Sacred Heart,23:06.6,FINISHED,athletic.net,https://www.athletic.net/CrossCountry/meet/286720/results/1142183
-2026-10-10,Haunted Woods Classic,JV,5000,25,Jules Thomas,10,Sacred Heart,23:35.90,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
-2026-09-23,"St. X XC Champions Series Meet 2 -JV, MS & ES",JV,5000,13,Jules Thomas,10,Sacred Heart,23:22.10,FINISHED,milesplit,https://ky.milesplit.com/meets/766785/results?type=formatted
-2026-09-19,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,47,Jules Thomas,10,Sacred Heart,24:50.80,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
-2026-09-05,Ryle Invite,JV,5000,21,Jules Thomas,10,Sacred Heart,25:07.70,FINISHED,milesplit,https://ky.milesplit.com/meets/755559/results?type=formatted
-2026-08-25,AHS-SHA Palindrome JV Classic,JV,3000,6,Jules Thomas,,Sacred Heart,14:11.40,FINISHED,milesplit,https://ky.milesplit.com/meets/775574-ahs-sha-palindrome-jv-classic-girls-only-2026/results/1313597/raw
-2026-08-22,STXXC Tiger Run 2026,JV,5000,31,Jules Thomas,10,Sacred Heart,24:04.83,FINISHED,milesplit,https://ky.milesplit.com/meets/771610-stxxc-tiger-run-2026/results/1313201/raw
-2026-08-08,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,38,Jules Thomas,10,Sacred Heart,15:10.19,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
-2025-10-23,Metro JV Regional XC,JV,5000,101,Jules Thomas,9,Sacred Heart,25:49.81,FINISHED,milesplit,https://ky.milesplit.com/meets/715412/results?type=formatted
-2025-10-11,Haunted Woods Classic,JV,5000,88,Jules Thomas,9,Sacred Heart,27:36.20,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
-2025-09-27,Hillbilly Run,JV,5000,72,Jules Thomas,9,Sacred Heart,27:49.65,FINISHED,milesplit,https://ky.milesplit.com/meets/694963/results?type=formatted
-2025-09-19,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,82,Jules Thomas,9,Sacred Heart,27:14.90,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted
-2025-09-10,"St. X XC Champions Series Meet 1 -JV, MS & ES",JV,4000,51,Jules Thomas,9,Sacred Heart,23:30.92,FINISHED,milesplit,https://ky.milesplit.com/meets/696523/results?type=formatted
-2025-09-03,AHS-SHA Palindrome JV Classic,JV,3000,33,Jules Thomas,9,Sacred Heart,16:25.50,FINISHED,milesplit,https://ky.milesplit.com/meets/707757/results?type=formatted
+﻿date,sport,meet_name,division,distance_m,place,athlete,grade,team,time_text,status,source,source_url
+2026-10-22,xc,Metro JV Regional XC presented by DC Timing,JV,5000,39,Jules Thomas,10,Sacred Heart,23:06.6,FINISHED,athletic.net,https://www.athletic.net/CrossCountry/meet/286720/results/1142183
+2026-10-10,xc,Haunted Woods Classic,JV,5000,25,Jules Thomas,10,Sacred Heart,23:35.90,FINISHED,milesplit,https://ky.milesplit.com/meets/766119/results?type=formatted
+2026-09-23,xc,"St. X XC Champions Series Meet 2 -JV, MS & ES",JV,5000,13,Jules Thomas,10,Sacred Heart,23:22.10,FINISHED,milesplit,https://ky.milesplit.com/meets/766785/results?type=formatted
+2026-09-19,xc,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,47,Jules Thomas,10,Sacred Heart,24:50.80,FINISHED,milesplit,https://ky.milesplit.com/meets/755977/results?type=formatted
+2026-09-05,xc,Ryle Invite,JV,5000,21,Jules Thomas,10,Sacred Heart,25:07.70,FINISHED,milesplit,https://ky.milesplit.com/meets/755559/results?type=formatted
+2026-08-25,xc,AHS-SHA Palindrome JV Classic,JV,3000,6,Jules Thomas,,Sacred Heart,14:11.40,FINISHED,milesplit,https://ky.milesplit.com/meets/775574-ahs-sha-palindrome-jv-classic-girls-only-2026/results/1313597/raw
+2026-08-22,xc,STXXC Tiger Run 2026,JV,5000,31,Jules Thomas,10,Sacred Heart,24:04.83,FINISHED,milesplit,https://ky.milesplit.com/meets/771610-stxxc-tiger-run-2026/results/1313201/raw
+2026-08-08,xc,"ST X, SHA, Manual Alumni XC Meet",High School,3218.688,38,Jules Thomas,10,Sacred Heart,15:10.19,FINISHED,milesplit,https://ky.milesplit.com/meets/772654/results?type=formatted
+2025-10-23,xc,Metro JV Regional XC,JV,5000,101,Jules Thomas,9,Sacred Heart,25:49.81,FINISHED,milesplit,https://ky.milesplit.com/meets/715412/results?type=formatted
+2025-10-11,xc,Haunted Woods Classic,JV,5000,88,Jules Thomas,9,Sacred Heart,27:36.20,FINISHED,milesplit,https://ky.milesplit.com/meets/690388/results?type=formatted
+2025-09-27,xc,Hillbilly Run,JV,5000,72,Jules Thomas,9,Sacred Heart,27:49.65,FINISHED,milesplit,https://ky.milesplit.com/meets/694963/results?type=formatted
+2025-09-19,xc,Trinity / Valkyrie Invitational,Freshman/Sophomore,5000,82,Jules Thomas,9,Sacred Heart,27:14.90,FINISHED,milesplit,https://ky.milesplit.com/meets/660251/results?type=formatted
+2025-09-10,xc,"St. X XC Champions Series Meet 1 -JV, MS & ES",JV,4000,51,Jules Thomas,9,Sacred Heart,23:30.92,FINISHED,milesplit,https://ky.milesplit.com/meets/696523/results?type=formatted
+2025-09-03,xc,AHS-SHA Palindrome JV Classic,JV,3000,33,Jules Thomas,9,Sacred Heart,16:25.50,FINISHED,milesplit,https://ky.milesplit.com/meets/707757/results?type=formatted
