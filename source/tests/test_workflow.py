@@ -129,6 +129,59 @@ class WorkflowTests(unittest.TestCase):
             self.assertEqual(conn.execute("PRAGMA integrity_check").fetchone()[0],"ok")
             self.assertEqual(conn.execute("SELECT count(*) FROM results").fetchone()[0],3)
 
+    def test_existing_database_migrates_to_track_meets(self):
+        old_db = self.root / "old.db"
+        with closing(sqlite3.connect(old_db)) as conn:
+            conn.executescript("""
+                PRAGMA foreign_keys=ON;
+                CREATE TABLE meets (
+                    id INTEGER PRIMARY KEY, meet_key TEXT UNIQUE NOT NULL,
+                    name TEXT NOT NULL, date TEXT NOT NULL, venue TEXT NOT NULL DEFAULT '',
+                    sport TEXT NOT NULL DEFAULT 'xc' CHECK(sport='xc'));
+                CREATE TABLE races (id INTEGER PRIMARY KEY, meet_id INTEGER REFERENCES meets(id));
+                INSERT INTO meets VALUES (1,'old:1','Old Meet','2025-08-01','','xc');
+                INSERT INTO races VALUES (1,1);
+            """)
+        with closing(app.initialize(old_db)) as conn:
+            conn.execute("UPDATE meets SET sport='track' WHERE id=1")
+            self.assertEqual(conn.execute("SELECT sport FROM meets WHERE id=1").fetchone()[0],"track")
+            self.assertEqual(conn.execute("SELECT meet_id FROM races WHERE id=1").fetchone()[0],1)
+            self.assertEqual(conn.execute("PRAGMA foreign_key_check").fetchall(),[])
+
+    def test_track_records_and_personal_bests_stay_separate_from_xc(self):
+        xc_race = [{"division":"Varsity","distance_m":3200,"rows":[
+            app.validate_row({"place":1,"athlete":"Runner One","grade":9,"gender":"F","team":"Sacred Heart","time":"12:00.00"})
+        ]}]
+        app.import_races(self.meet,xc_race,"manual","https://example.test/xc",self.source,db_path=self.db)
+        track_meet = {"key":"athletic.live:80264","name":"Lloyd White Distance Festival","date":"2026-11-07","sport":"track"}
+        track_race = [{"division":"Varsity","distance_m":3200,"rows":[
+            app.validate_row({"place":1,"athlete":"Runner One","grade":9,"gender":"F","team":"Sacred Heart","time":"10:49.61"})
+        ]}]
+        app.import_races(track_meet,track_race,"athletic.live","https://live.dcracetiming.com/meets/80264/events/individual/2942954",self.source,db_path=self.db)
+        out = self.root / "track-site"
+        app.build_site(self.db,out)
+        index_page = (out / "index.html").read_text(encoding="utf-8")
+        style = (out / "style.css").read_text(encoding="utf-8")
+        meet_page = (out / "meet-2.html").read_text(encoding="utf-8")
+        athlete_page = next(out.glob("athlete-runner-one*.html")).read_text(encoding="utf-8")
+        self.assertIn('class="meet-rail">XC</span>',index_page)
+        self.assertIn('class="meet-rail meet-rail--track">TF</span>',index_page)
+        self.assertIn(".meet-rail--track{background:var(--navy);color:#fff}",style)
+        self.assertIn("Girls track",meet_page)
+        self.assertIn("Track",athlete_page)
+        self.assertIn("XC",athlete_page)
+        self.assertNotIn('class="pr"',meet_page)
+        with closing(sqlite3.connect(self.db)) as conn:
+            self.assertEqual(conn.execute("SELECT sport FROM meets WHERE id=2").fetchone()[0],"track")
+
+    def test_import_cannot_change_existing_meet_sport(self):
+        self.load()
+        track_meet = {**self.meet,"sport":"track"}
+        with self.assertRaisesRegex(ValueError,"Meet sport differs"):
+            app.import_races(track_meet,app.parse_tabular(SOURCE),"milesplit","https://example.test",self.source,db_path=self.db)
+        with closing(sqlite3.connect(self.db)) as conn:
+            self.assertEqual(conn.execute("SELECT sport FROM meets WHERE meet_key=?",(self.meet["key"],)).fetchone()[0],"xc")
+
     def test_readable_urls_handle_collisions_and_remain_stable(self):
         from presentation import athlete_urls
         first={'a'*24:[{'athlete':'Zoë O’Neil'}]}

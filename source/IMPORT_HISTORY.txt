@@ -130,3 +130,38 @@ explicit replacement protection, girls/level/metadata validation and same-date
 cross-source duplicate guard. Optional Playwright setup is documented in
 START_HERE.txt. The Windows launcher now falls back to python when py -3 has no
 registered interpreter. All 23 workflow tests passed.
+
+2026-10-24 - KHSAA Region 4 Class 3A
+Imported MileSplit meet 774043, Girls Varsity 5,000 meters: 44 results including
+7 Sacred Heart runners. Date and venue verified from the meet page. Original
+structured source retained as 774043_2b85e3e5c0f3_performances.json. Automatic
+pre-import backup created; row-count, integrity and foreign-key checks passed.
+Local website rebuilt. Public website not published in this import step.
+
+2026-10-31 - KHSAA State Cross Country Championships
+Imported MileSplit Live meet 774035, event 1, Class 3A girls Varsity 5,000m:
+274 finishers including all seven Sacred Heart runners. Sacred Heart won with
+55 points; Lucy Gaunt won individually in 17:54.56. The 35 official scoring
+teams are archived in data/sources/state_774035/results.json and scores.html;
+the championship summary is displayed in the meet-page note. The application
+does not yet store team standings in database tables.
+All seven Sacred Heart results reuse their existing athlete histories. Three
+Atherton opponents with duplicate legacy histories use their unique MileSplit
+profiles from the October 24 regional meet; the audit records those matches.
+Live results omit grades, so grades are left blank. Prior database rows were
+preserved. Pre-import backup, source HTML, replay script, and validation audit
+are retained. Integrity, foreign-key, row-count, and athlete-page checks passed.
+Local reports rebuilt; public website not published.
+
+
+2026-11-07 LLOYD WHITE DISTANCE FESTIVAL
+Imported Girls 3200m Varsity from the DC Timing results page
+(https://live.dcracetiming.com/meets/80264/events/individual/2942954).
+All 97 finishers are retained. The reviewed CSV preserves each original club in
+source_team and records these requested school mappings in team:
+Heart Attack -> Sacred Heart; Derby City AC -> Assumption; Louisville Rams ->
+Dupont Manual. Other source team names are unchanged. The source lists grades
+for 96 finishers; Madison Price's grade was not listed and remains blank.
+Seven Sacred Heart runners are highlighted. Track is stored separately from
+cross country, including personal-best comparisons. See
+data/sources/80264_2942954_reviewed.csv.

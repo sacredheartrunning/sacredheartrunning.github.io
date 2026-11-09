@@ -22,13 +22,13 @@ def distance_label(value):
 def page(title, body, settings):
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} | {E(settings['site_title'])}</title><link rel="stylesheet" href="style.css"><script src="site.js" defer></script></head><body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><a class="brand" href="index.html"><img src="assets/school-logo.png" alt="Sacred Heart Academy"><span class="brand-section">Running<br>Cross country</span></a><button id="menuOpen" class="menu-open" aria-label="Open navigation" aria-haspopup="dialog" aria-controls="siteMenu" aria-expanded="false">☰</button></header>
+<header class="site-header"><a class="brand" href="index.html"><img src="assets/school-logo.png" alt="Sacred Heart Academy"><span class="brand-section">Running<br>Track &amp; cross country</span></a><button id="menuOpen" class="menu-open" aria-label="Open navigation" aria-haspopup="dialog" aria-controls="siteMenu" aria-expanded="false">☰</button></header>
 <dialog id="siteMenu" aria-labelledby="menuTitle"><div class="menu-layout"><div class="menu-brand"><p>SACRED HEART ACADEMY</p><h2 id="menuTitle">Valkyries.<br><em>Every season.</em></h2></div><div class="menu-content"><button id="menuClose" aria-label="Close navigation">×</button><p class="eyebrow">EXPLORE RUNNING</p><nav aria-label="Primary"><a href="index.html">Home</a><a href="index.html#meets">Meet history</a><a href="index.html#athletes">Athletes</a><a href="data_downloads.html">Data downloads</a></nav></div></div></dialog>
-<main id="main">{body}</main><footer>Results cover imported races only. Best times are compared by distance; courses and conditions vary.<br><a href="{E(settings['team_url'])}">MileSplit team profile</a> · <a href="https://sha.shslou.org/">Sacred Heart Academy</a></footer></body></html>'''
+<main id="main">{body}</main><footer>Results cover imported races only. Best times are compared by event type and distance.<br><a href="{E(settings['team_url'])}">MileSplit team profile</a> · <a href="https://sha.shslou.org/">Sacred Heart Academy</a></footer></body></html>'''
 
 
 def csv_export(path, rows):
-    columns = ['date','meet_name','division','distance_m','place','athlete','grade','team','time_text','status','source','source_url']
+    columns = ['date','sport','meet_name','division','distance_m','place','athlete','grade','team','time_text','status','source','source_url']
     with path.open('w',encoding='utf-8-sig',newline='') as file:
         writer = csv.writer(file)
         writer.writerow(columns)
@@ -41,8 +41,9 @@ def csv_export(path, rows):
 def bests(performances):
     result = {}
     for row in performances:
-        if row['seconds'] is not None and (row['distance_m'] not in result or row['seconds'] < result[row['distance_m']]['seconds']):
-            result[row['distance_m']] = row
+        key = (row.get('sport', 'xc'), row['distance_m'])
+        if row['seconds'] is not None and (key not in result or row['seconds'] < result[key]['seconds']):
+            result[key] = row
     return result
 
 
@@ -86,32 +87,35 @@ def build(rows, meets, output, settings, is_home):
     improved = set()
     for perfs in people.values():
         for row in perfs:
-            prior = [r['seconds'] for r in perfs if r['date'] < row['date'] and r['distance_m']==row['distance_m'] and r['seconds'] is not None]
+            prior = [r['seconds'] for r in perfs if r['date'] < row['date'] and r.get('sport', 'xc')==row.get('sport', 'xc') and r['distance_m']==row['distance_m'] and r['seconds'] is not None]
             if prior and row['seconds'] is not None and row['seconds'] < min(prior):
                 improved.add(row['id'])
 
     def badge(row):
         if row['id'] in improved:
-            return ' <span class="pr" title="Faster than earlier imported results at this distance">PR</span>'
+            return ' <span class="pr" title="Faster than earlier imported results at this sport and distance">PR</span>'
         return ''
 
     options = '<option value="all">All seasons</option>'+''.join(f'<option>{y}</option>' for y in years)
-    intro = f'''<div class="topbar"><div><p class="eyebrow">SACRED HEART ACADEMY · LOUISVILLE, KY</p><h1>Sacred Heart Running</h1><p class="subline">Cross country meet results and athlete history</p></div><a class="button" href="data_downloads.html">Data downloads ↓</a></div><div class="filterbar"><span class="pill">Girls cross country</span><label>Season <select id="season">{options}</select></label><span class="muted">{len(meets)} meets · {len(people)} athletes · {len(home)} performances</span></div>'''
+    intro = f'''<div class="topbar"><div><p class="eyebrow">SACRED HEART ACADEMY · LOUISVILLE, KY</p><h1>Sacred Heart Running</h1><p class="subline">Track and cross country meet results and athlete history</p></div><a class="button" href="data_downloads.html">Data downloads ↓</a></div><div class="filterbar"><span class="pill">Girls track &amp; cross country</span><label>Season <select id="season">{options}</select></label><span class="muted">{len(meets)} meets · {len(people)} athletes · {len(home)} performances</span></div>'''
     content = intro+'<div class="home-grid"><section class="panel" id="meets"><div class="panel-heading"><h2>Meets</h2><span class="count">Sacred Heart</span></div><div class="meet-list">'
     for year in years:
         content += f'<section class="meet-year" data-year="{year}"><h3 class="year-bar">{year}</h3>'
         for meet in [m for m in meets if m['date'].startswith(year)]:
-            content += f'<a class="meet-item" href="meet-{meet["id"]}.html"><span class="meet-rail">XC</span><span class="meet-main"><small>{E(meet["date"])}</small><strong>{E(meet["name"])}</strong><small>{E(meet["venue"])}</small></span><span class="arrow">→</span></a>'
+            is_track = meet.get('sport') == 'track'
+            rail = 'TF' if is_track else 'XC'
+            rail_class = ' meet-rail--track' if is_track else ''
+            content += f'<a class="meet-item" href="meet-{meet["id"]}.html"><span class="meet-rail{rail_class}">{rail}</span><span class="meet-main"><small>{E(meet["date"])}</small><strong>{E(meet["name"])}</strong><small>{E(meet["venue"])}</small></span><span class="arrow">→</span></a>'
         content += '</section>'
     content += '<p class="coverage">Showing imported meets. More seasons will appear as results are added.</p></div></section><section class="panel" id="athletes"><div class="panel-heading"><h2>Athletes</h2><span class="count" id="athleteCount">'+str(len(people))+'</span></div><div class="athlete-controls"><label>Find an athlete<input id="athleteSearch" type="search" placeholder="Search by name…"></label><label>Sort<select id="athleteSort"><option value="name">Name</option><option value="grade">Latest grade</option><option value="best">5K best</option></select></label></div><p class="coverage">Grades are from the latest imported race. Bests cover imported results only.</p><div class="athlete-cards">'
     for key,perfs in sorted(people.items(),key=lambda item:item[1][0]['athlete']):
         latest = perfs[0]
-        five = best_by_person[key].get(5000)
+        five = best_by_person[key].get(('xc', 5000))
         mark = E(five['time_text']) if five else '—'
         seasons = ' '.join(sorted({r['date'][:4] for r in perfs}))
-        content += f'<a class="athlete-card" href="{urls[key]}.html" data-name="{E(latest["athlete"].lower())}" data-grade="{E(latest["grade"] or 0)}" data-best="{five["seconds"] if five else 999999}" data-seasons="{seasons}"><span class="grade-bubble"><small>GRADE</small>{E(latest["grade"] or "—")}</span><span><strong>{E(latest["athlete"])}</strong><small>5K best <b>{mark}</b></small></span></a>'
-        marks = ''.join(f'<div class="best-card"><small>{distance_label(distance)} · Best imported</small><strong>{E(row["time_text"])}</strong><span>{E(row["date"])}</span></div>' for distance,row in sorted(best_by_person[key].items()))
-        body = f'<a class="back" href="index.html#athletes">← All athletes</a><p class="eyebrow">SACRED HEART · CROSS COUNTRY</p><h1>{E(latest["athlete"])}</h1><p class="subline">Grade {E(latest["grade"] or "not listed")} at latest imported race · {len(perfs)} performances</p><div class="best-grid">{marks}</div><section class="panel"><div class="panel-heading"><h2>Race history</h2><a href="{urls[key]}.csv" download>Download CSV ↓</a></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Meet</th><th>Race</th><th>Distance</th><th>Place</th><th>Time</th></tr></thead><tbody>'
+        content += f'<a class="athlete-card" href="{urls[key]}.html" data-name="{E(latest["athlete"].lower())}" data-grade="{E(latest["grade"] or 0)}" data-best="{five["seconds"] if five else 999999}" data-seasons="{seasons}"><span class="grade-bubble"><small>GRADE</small>{E(latest["grade"] or "—")}</span><span><strong>{E(latest["athlete"])}</strong><small>5K XC best <b>{mark}</b></small></span></a>'
+        marks = ''.join(f'<div class="best-card"><small>{row.get("sport", "xc").upper()} · {distance_label(distance)} · Best imported</small><strong>{E(row["time_text"])}</strong><span>{E(row["date"])}</span></div>' for (sport,distance),row in sorted(best_by_person[key].items()))
+        body = f'<a class="back" href="index.html#athletes">← All athletes</a><p class="eyebrow">SACRED HEART · TRACK &amp; CROSS COUNTRY</p><h1>{E(latest["athlete"])}</h1><p class="subline">Grade {E(latest["grade"] or "not listed")} at latest imported race · {len(perfs)} performances</p><div class="best-grid">{marks}</div><section class="panel"><div class="panel-heading"><h2>Race history</h2><a href="{urls[key]}.csv" download>Download CSV ↓</a></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Meet</th><th>Race</th><th>Distance</th><th>Place</th><th>Time</th></tr></thead><tbody>'
         for r in perfs:
             body += f'<tr><td>{E(r["date"])}</td><td><a href="meet-{r["meet_id"]}.html">{E(r["meet_name"])}</a></td><td>{E(r["division"])}</td><td>{distance_label(r["distance_m"])}</td><td>{E(r["place"] or "—")}</td><td>{E(r["time_text"])}{badge(r)}</td></tr>'
         body += '</tbody></table></div></section><p class="coverage">PR marks require a faster time than an earlier imported race at the same distance. A first recorded result is a baseline.</p>'
@@ -129,7 +133,8 @@ def build(rows, meets, output, settings, is_home):
         download_name = f'meet-{meet["id"]}.csv'
         csv_export(output/download_name,selected)
         downloads += f'<p><a href="{download_name}" download>{E(meet["date"])} · {E(meet["name"])}</a></p>'
-        body = f'<a class="back" href="index.html#meets">← All meets</a><div class="topbar"><div><p class="date">{E(meet["date"])}</p><h1>{E(meet["name"])}</h1><p class="subline">{E(meet["venue"])} · Girls cross country</p></div><a class="button" href="{download_name}" download>Download results ↓</a></div><div class="filterbar"><label><input type="checkbox" id="homeOnly"> Sacred Heart only</label><span class="muted">Sacred Heart runners are highlighted</span></div><div class="tabs" role="group" aria-label="Race filter"><button class="tab active" data-race="all" aria-pressed="true">All races</button>'
+        sport_label = 'track' if meet.get('sport') == 'track' else 'cross country'
+        body = f'<a class="back" href="index.html#meets">← All meets</a><div class="topbar"><div><p class="date">{E(meet["date"])}</p><h1>{E(meet["name"])}</h1><p class="subline">{E(meet["venue"])} · Girls {sport_label}</p></div><a class="button" href="{download_name}" download>Download results ↓</a></div><div class="filterbar"><label><input type="checkbox" id="homeOnly"> Sacred Heart only</label><span class="muted">Sacred Heart runners are highlighted</span></div><div class="tabs" role="group" aria-label="Race filter"><button class="tab active" data-race="all" aria-pressed="true">All races</button>'
         note = settings.get('meet_notes', {}).get(meet.get('meet_key', ''), '')
         if note:
             body = body.replace('<div class="filterbar">', f'<p class="coverage">{E(note)}</p><div class="filterbar">', 1)

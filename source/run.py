@@ -52,7 +52,7 @@ def initialize(path=DB):
         CREATE TABLE IF NOT EXISTS meets (
             id INTEGER PRIMARY KEY, meet_key TEXT UNIQUE NOT NULL,
             name TEXT NOT NULL, date TEXT NOT NULL, venue TEXT NOT NULL DEFAULT '',
-            sport TEXT NOT NULL DEFAULT 'xc' CHECK(sport='xc'));
+            sport TEXT NOT NULL DEFAULT 'xc' CHECK(sport IN ('xc','track')));
         CREATE TABLE IF NOT EXISTS races (
             id INTEGER PRIMARY KEY, meet_id INTEGER NOT NULL REFERENCES meets(id),
             division TEXT NOT NULL, gender TEXT NOT NULL CHECK(gender='F'),
@@ -77,6 +77,30 @@ def initialize(path=DB):
             source TEXT NOT NULL, source_athlete_id TEXT NOT NULL,
             athlete_key TEXT NOT NULL, PRIMARY KEY(source,source_athlete_id));
     """)
+    meet_schema = conn.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='meets'").fetchone()[0]
+    if "'track'" not in meet_schema:
+        conn.execute("PRAGMA foreign_keys=OFF")
+        try:
+            conn.execute("BEGIN")
+            try:
+                conn.execute("""
+                    CREATE TABLE meets_track_migration (
+                        id INTEGER PRIMARY KEY, meet_key TEXT UNIQUE NOT NULL,
+                        name TEXT NOT NULL, date TEXT NOT NULL, venue TEXT NOT NULL DEFAULT '',
+                        sport TEXT NOT NULL DEFAULT 'xc' CHECK(sport IN ('xc','track')))
+                """)
+                conn.execute("""
+                    INSERT INTO meets_track_migration(id,meet_key,name,date,venue,sport)
+                    SELECT id,meet_key,name,date,venue,sport FROM meets
+                """)
+                conn.execute("DROP TABLE meets")
+                conn.execute("ALTER TABLE meets_track_migration RENAME TO meets")
+                conn.commit()
+            except Exception:
+                conn.rollback()
+                raise
+        finally:
+            conn.execute("PRAGMA foreign_keys=ON")
     columns={r[1] for r in conn.execute('PRAGMA table_info(races)')}
     if 'race_date' not in columns:
         conn.execute('ALTER TABLE races ADD COLUMN race_date TEXT')
@@ -289,6 +313,9 @@ def import_races(meet, races, source, source_url, artifact, *, replace=False, db
     date.fromisoformat(meet["date"])
     if not meet["key"].strip() or not meet["name"].strip():
         raise ValueError("Meet key and name are required.")
+    sport = meet.get("sport", "xc")
+    if sport not in ("xc", "track"):
+        raise ValueError("Meet sport must be 'xc' or 'track'.")
     validate_races(races)
     artifact = Path(artifact)
     digest = hashlib.sha256(artifact.read_bytes()).hexdigest()
@@ -299,7 +326,9 @@ def import_races(meet, races, source, source_url, artifact, *, replace=False, db
             existing = conn.execute("SELECT * FROM meets WHERE meet_key=?", (meet["key"],)).fetchone()
             if existing and existing["date"] != meet["date"]:
                 raise ValueError("Meet date differs from existing record; review before importing.")
-            conn.execute("INSERT OR IGNORE INTO meets(meet_key,name,date,venue) VALUES(?,?,?,?)", (meet["key"],meet["name"],meet["date"],meet.get("venue", "")))
+            if existing and existing["sport"] != sport:
+                raise ValueError("Meet sport differs from existing record; review before importing.")
+            conn.execute("INSERT OR IGNORE INTO meets(meet_key,name,date,venue,sport) VALUES(?,?,?,?,?)", (meet["key"],meet["name"],meet["date"],meet.get("venue", ""),sport))
             mid = conn.execute("SELECT id FROM meets WHERE meet_key=?", (meet["key"],)).fetchone()[0]
             previous_people = conn.execute('SELECT DISTINCT athlete,team,grade,athlete_key FROM results JOIN races ON races.id=results.race_id JOIN meets ON meets.id=races.meet_id WHERE substr(meets.date,1,4)=?',(meet['date'][:4],)).fetchall()
             people_by_name = {}
@@ -377,7 +406,7 @@ def build_site(db_path=DB, output=None):
     output = Path(output or ROOT / "output" / "site")
     conn = initialize(db_path)
     try:
-        rows = [dict(r) for r in conn.execute("SELECT r.*,c.division,c.distance_m,c.source,c.source_url,c.meet_id,m.name AS meet_name,COALESCE(c.race_date,m.date) AS date FROM results r JOIN races c ON c.id=r.race_id JOIN meets m ON m.id=c.meet_id ORDER BY date DESC,c.division,r.place IS NULL,r.place")]
+        rows = [dict(r) for r in conn.execute("SELECT r.*,c.division,c.distance_m,c.source,c.source_url,c.meet_id,m.name AS meet_name,m.sport,COALESCE(c.race_date,m.date) AS date FROM results r JOIN races c ON c.id=r.race_id JOIN meets m ON m.id=c.meet_id ORDER BY date DESC,c.division,r.place IS NULL,r.place")]
         meets = [dict(m) for m in conn.execute("SELECT * FROM meets ORDER BY date DESC")]
     finally:
         conn.close()
@@ -445,7 +474,8 @@ def main():
         p.add_argument("--commit",action="store_true")
         p.add_argument("--replace",action="store_true")
         if command == "csv":
-            p.add_argument("--source",choices=["manual","athletic.net","milesplit"],default="manual")
+            p.add_argument("--source",choices=["manual","athletic.net","athletic.live","milesplit"],default="manual")
+            p.add_argument("--sport",choices=["xc","track"],default="xc")
             p.add_argument("--division",required=True)
             p.add_argument("--distance",type=int,required=True)
         else:
@@ -472,6 +502,8 @@ def main():
             source = "milesplit"
         else:
             meet = {"key":args.meet_key,"name":args.name,"date":args.date,"venue":args.venue}
+            if args.command == "csv":
+                meet["sport"] = args.sport
             artifact = args.file.resolve()
             if args.command == "csv":
                 with artifact.open(encoding="utf-8-sig",newline="") as f:

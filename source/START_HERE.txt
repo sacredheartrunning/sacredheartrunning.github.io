@@ -82,14 +82,18 @@ Example preview, from this folder:
   python run.py csv "data/sources/reviewed.csv" --meet-key "milesplit:771610" --name "STXXC Tiger Run 2026" --date 2026-08-22 --division JV --distance 5000 --source manual --source-url "Screenshot: tiger-jv.png"
 Add --commit after review. Add --replace only if the file contains the ENTIRE
 race you intend to replace. Do not replace a full race with a partial screenshot.
-Use --source athletic.net for reviewed Athletic.net exports.
+Use --source athletic.net for reviewed Athletic.net exports. For track, add
+--sport track; track results and bests remain separate from cross country.
+Use --source athletic.live for reviewed DC Timing/AthleticLIVE results.
 
 Use the SAME meet key and division when correcting a race from another source.
 Different meet keys intentionally represent different meets. The system does
 not guess whether two differently named meets are the same event.
 
 DATA RULES
-Only female XC races are accepted. Boys and unselected divisions are excluded.
+Only girls' running results are accepted. Cross-country races and track events
+are recorded with separate sport labels; personal bests are compared only within
+the same sport and distance. Boys and unselected divisions are excluded.
 Keep all runners in a selected race for context, highlighting Sacred Heart.
 Imports retain source URL, saved file, hash, and audit history. Race replacements
 are atomic across the whole import and a database backup is made first.
@@ -97,8 +101,9 @@ Athlete histories use school, name, and estimated graduating cohort when grade
 is present. This is provisional identity matching, not a verified graduation
 year. Missing grades, name changes, same-name athletes, or switching to stable
 source IDs can require reconciliation before historical backfills.
-Personal bests are best IMPORTED times by distance; they are not complete career
-records. Team scores are not inferred from finish places in this initial version.
+Personal bests are best IMPORTED times by sport and distance; they are not
+complete career records. Team scores are not inferred from finish places in this
+initial version.
 
 BACKUP AND RESTORE
 Menu 4 makes a database snapshot using SQLite's backup API. For a full handoff or
@@ -148,6 +153,8 @@ opponents in those races. Source files and database backups are retained.
 Grades from this feed are inferred from graduation year and race date. Stable
 source IDs are linked to existing histories where matching is unambiguous.
 Mile races retain exact mile distances and are not compared with 5K bests.
+Track results are labeled separately from cross country, and the same distance
+is never compared across the two sports.
 For a meet spanning multiple days, use the first listed date unless a race date
 is known. Nike 2026 uses October 3 for both races, confirmed by Bob.
 Ryle 2026: Lucy Gaunt's race is Varsity; Clara Kaiser's race is JV, confirmed by
